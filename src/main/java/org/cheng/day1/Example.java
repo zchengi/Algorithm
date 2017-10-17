@@ -14,6 +14,5 @@ public class Example {
         System.out.println(1 + 2 + 3 + 4.0);
         System.out.println(4.1 >= 4);
         System.out.println(1 + 2 + "3");
-
     }
 }
