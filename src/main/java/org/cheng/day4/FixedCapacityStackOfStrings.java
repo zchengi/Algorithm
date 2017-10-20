@@ -64,9 +64,18 @@ public class FixedCapacityStackOfStrings {
         return a[--n];
     }
 
+    /**
+     * 练习 1.3.1 判断是否以满
+     *
+     * @return
+     */
+    public boolean isFull() {
+        return n == a.length;
+    }
+
     public static void main(String[] args) {
 
-        FixedCapacityStackOfStrings s = new FixedCapacityStackOfStrings(100);
+        FixedCapacityStackOfStrings s = new FixedCapacityStackOfStrings(10);
         while (!StdIn.isEmpty()) {
             // a b c
             // a b c -
@@ -79,6 +88,7 @@ public class FixedCapacityStackOfStrings {
                 StdOut.print(s.pop() + " ");
             }
         }
+        System.out.println(s.isFull());
         StdOut.println("(" + s.size() + " left on stack)");
     }
 }
