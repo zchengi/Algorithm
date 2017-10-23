@@ -14,6 +14,8 @@ public class InfixToPostfix {
     public static void main(String[] args) {
         Stack<String> stack = new Stack<String>();
         while (!StdIn.isEmpty()) {
+            // ( 1 + ( ( 2 + 3 ) * ( 4 * 5 ) ) )
+            // ( ( 1 + sqrt ( 5.0 ) ) / 2.0 )
             String s = StdIn.readString();
             switch (s) {
                 case "+":

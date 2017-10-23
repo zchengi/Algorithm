@@ -63,6 +63,44 @@ public class Stack<Item> implements Iterable<Item> {
         return first.item;
     }
 
+    /**
+     * 1.3.30
+     * 接受一条链表的首结点作为参数，（破坏性地）将链表反转并返回结果链表的首结点。
+     * 未实现
+     *
+     * @param first 原首结点
+     * @return 现首结点
+     */
+    public Node reverse() {
+        Node oldFirst = first;
+        first = null;
+        while (oldFirst != null) {
+            Node second = oldFirst.next;
+            oldFirst.next = first;
+            first = oldFirst;
+            oldFirst = second;
+        }
+        return first;
+
+       /* if (first == null) {
+            return null;
+        }
+        if (first.next == null) {
+            return first;
+        }
+        Node second = first.next;
+        Node rest = reverse(second);
+        second.next = first;
+        first.next = null;
+        return rest;*/
+    }
+
+    /**
+     * 获取首结点
+     */
+    public Node getFirst() {
+        return first;
+    }
 
     @Override
     public Iterator<Item> iterator() {
@@ -105,7 +143,8 @@ public class Stack<Item> implements Iterable<Item> {
     }
 
     public static void main(String[] args) {
-        Stack<String> s = new Stack<>();
+
+        Stack<String> s = new Stack<String>();
         while (!StdIn.isEmpty()) {
             // a b c
             // a b c - d - f
