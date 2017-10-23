@@ -77,6 +77,11 @@ public class RandomQueue<Item> implements Iterable<Item> {
         return a[index];
     }
 
+    /**
+     * 1.3.36
+     * 随机迭代器
+     * 随机返回队列中的所有元素
+     */
     public Iterator<Item> iterator() {
         return new ReverseIterator();
     }
