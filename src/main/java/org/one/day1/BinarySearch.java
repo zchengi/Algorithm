@@ -24,7 +24,7 @@ public class BinarySearch {
      * @param a   查找数组
      * @return 是否存在：存在-返回索引；不存在-返回-1
      */
-    private static int rank(int key, int[] a) {
+    public static int rank(int key, int[] a) {
         // 数组必须是有序的
         int lo = 0;
         // 数组长度
