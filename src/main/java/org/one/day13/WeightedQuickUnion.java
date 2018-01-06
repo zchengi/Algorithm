@@ -24,6 +24,9 @@ public class WeightedQuickUnion {
     private int count;
 
     public WeightedQuickUnion(int n) {
+        if (n < 1) {
+            throw new IllegalArgumentException("连通分量数必须大于一！");
+        }
         count = n;
         parent = new int[n];
         size = new int[n];
