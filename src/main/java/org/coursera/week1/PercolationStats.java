@@ -22,14 +22,9 @@ public class PercolationStats {
      */
     private final int t;
 
-    /**
-     * 每一次尝试的渗透率得分
-     */
-    private final double[] fractions;
+    private final double mean;
 
-    private double mean;
-
-    private double stddev;
+    private final double stddev;
 
     /**
      * perform trials independent experiments on an n-by-n grid
@@ -40,7 +35,8 @@ public class PercolationStats {
         }
 
         t = trials;
-        fractions = new double[t];
+        // 每一次尝试的渗透率得分
+        double[] fractions = new double[t];
         // t次尝试
         for (int i = 0; i < t; i++) {
             Percolation p = new Percolation(n);
