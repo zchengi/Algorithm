@@ -1,5 +1,7 @@
 package org.coursera.week1;
 
+import edu.princeton.cs.algs4.In;
+
 import java.util.Arrays;
 import java.util.HashMap;
 
@@ -15,8 +17,8 @@ public class ThreeSumQuadratic {
     public static int count(int[] a, int target) {
         // 数组从大到小排序，以便于之后使用有序数组的性质简化运算
         Arrays.sort(a);
-        System.out.println(Arrays.toString(a));
-        System.out.println("target=" + target);
+        // System.out.println(Arrays.toString(a));
+        // System.out.println("target=" + target);
 
         int count = 0;
         int n = a.length;
@@ -39,8 +41,8 @@ public class ThreeSumQuadratic {
                 int bigValue = target - smallValue;
                 Integer bigIndex = map.get(bigValue);
                 if (bigIndex != null && bigIndex > i && bigIndex > j) {
-                    System.out.println("[" + i + "]=" + a[i] + ",[" + j + "]" + a[j]
-                            + ",[" + bigIndex + "]" + (bigValue));
+                   // System.out.println("[" + i + "]=" + a[i] + ",[" + j + "]" + a[j]
+                   //         + ",[" + bigIndex + "]" + (bigValue));
                     count++;
                 }
             }
@@ -49,12 +51,12 @@ public class ThreeSumQuadratic {
     }
 
     public static void main(String[] args) {
-        int[] a = {30, -40, -20, -10, 40, 0, 10, 5};
+        int[] a = new In("src/main/java/org/coursera/week1/8Kints.txt").readAllInts();
+        // int[] a = {30, -40, -20, -10, 40, 0, 10, 5};
         // 计算数组a中，随机三个数相加为0的组数
         System.out.println(count(a, 0));
     }
 }
-
 
 
 

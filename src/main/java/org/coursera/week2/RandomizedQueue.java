@@ -115,7 +115,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
             Item item = iteratorArrays[r];
             iteratorArrays[r] = iteratorArrays[rank];
             // 将已经遍历过的元素放到当前队列末尾，这样下次迭代就不会被选到
-            // iteratorArrays[rank] = item;
+            iteratorArrays[rank] = item;
             return item;
         }
 
