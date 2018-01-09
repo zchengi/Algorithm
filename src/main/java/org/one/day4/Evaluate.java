@@ -7,7 +7,7 @@ import java.util.Stack;
 /**
  * Dijkstra的双栈算术表达式求值算法
  *
- * @author one
+ * @author cheng
  *         2017/10/19 17:15
  */
 public class Evaluate {

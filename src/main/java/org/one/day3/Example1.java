@@ -8,7 +8,7 @@ import java.util.Scanner;
  * 编写一个Point2D的用例,从命令行接受一个整数N。
  * 在单位正方形中生成n个随机点,然后计算亮点之间的最近距离。
  *
- * @author one
+ * @author cheng
  *         2017/10/18 17:44
  */
 public class Example1 {

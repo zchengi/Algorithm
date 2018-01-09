@@ -6,7 +6,7 @@ import edu.princeton.cs.algs4.StdOut;
 /**
  * 一种表示固定容量字符串栈的抽象数据类型
  *
- * @author one
+ * @author cheng
  *         2017/10/19 19:48
  */
 public class FixedCapacityStackOfStrings {

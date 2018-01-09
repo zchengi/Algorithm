@@ -9,7 +9,7 @@ import edu.princeton.cs.algs4.StdIn;
  * 编写一个程序检查两个给定的字符串s和t是否互为回环变位。
  * 提示：答案只需要一行用到indexOf()、length()和字符串连接的代码。
  *
- * @author one
+ * @author cheng
  *         2017/10/18 21:03
  */
 public class Example6 {

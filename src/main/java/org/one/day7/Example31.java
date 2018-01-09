@@ -3,7 +3,7 @@ package org.one.day7;
 /**
  * 1.3.31 测试类
  *
- * @author one
+ * @author cheng
  *         2017/10/22 15:15
  */
 public class Example31 {

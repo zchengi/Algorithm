@@ -8,7 +8,7 @@ import java.util.Iterator;
  * 1.3.12
  * 接受一个字符串栈作为参数并返回该栈的一个副本
  *
- * @author one
+ * @author cheng
  *         2017/10/21 11:33
  */
 public class Example12 {

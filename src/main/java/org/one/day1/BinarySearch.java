@@ -4,7 +4,7 @@ package org.one.day1;
 import java.util.Arrays;
 
 /**
- * @author one
+ * @author cheng
  *         2017/10/16 16:12
  */
 public class BinarySearch {

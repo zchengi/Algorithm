@@ -7,7 +7,7 @@ import java.util.Arrays;
 /**
  * 使用Counter统计在有查找中被检查的键的总次数并查找全部结束后打印该值。
  *
- * @author one
+ * @author cheng
  *         2017/10/18 21:54
  */
 public class Example9 {

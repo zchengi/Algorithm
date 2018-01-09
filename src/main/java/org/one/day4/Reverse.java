@@ -7,7 +7,7 @@ import edu.princeton.cs.algs4.StdIn;
 /**
  * Stack的简单用例
  *
- * @author one
+ * @author cheng
  *         2017/10/19 16:30
  */
 public class Reverse {

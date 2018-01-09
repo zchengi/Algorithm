@@ -20,9 +20,11 @@ public class Example30 {
         for (String s : stack) {
             System.out.print(s + " ");
         }
-        stack.reverse();
+        Stack<String>.Node reverse = stack.reverse(stack.getFirst());
+        System.out.println("\n"+reverse);
+        stack.setFirst(reverse);
         for (String s : stack) {
-            System.out.print(s + " ");
+            System.out.print(s+" ");
         }
     }
 }

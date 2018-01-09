@@ -27,9 +27,13 @@ public class Stack<Item> implements Iterable<Item> {
     /**
      * 定义了结点的嵌套类
      */
-    private class Node {
+    public class Node {
         Item item;
         Node next;
+
+        public String toString() {
+            return "item:" + item;
+        }
     }
 
     /**
@@ -66,23 +70,14 @@ public class Stack<Item> implements Iterable<Item> {
     /**
      * 1.3.30
      * 接受一条链表的首结点作为参数，（破坏性地）将链表反转并返回结果链表的首结点。
-     * 未实现
+     * 递归解答： 假设链表有N个结点，我们先递归颠倒最后N-1个结点，然后小心地将链表
+     * 中的首结点插入到结果链表的末端。
      *
      * @param first 原首结点
      * @return 现首结点
      */
-    public Node reverse() {
-        Node oldFirst = first;
-        first = null;
-        while (oldFirst != null) {
-            Node second = oldFirst.next;
-            oldFirst.next = first;
-            first = oldFirst;
-            oldFirst = second;
-        }
-        return first;
-
-       /* if (first == null) {
+    public Node reverse(Node first) {
+        if (first == null) {
             return null;
         }
         if (first.next == null) {
@@ -92,7 +87,18 @@ public class Stack<Item> implements Iterable<Item> {
         Node rest = reverse(second);
         second.next = first;
         first.next = null;
-        return rest;*/
+        return rest;
+        //2.迭代解答
+        /*Node first   = x;
+        Node reverse = null;
+        while (first != null)
+        {
+            Node second = first.next;
+            first.next  = reverse;
+            reverse     = first;
+            first       = second;
+        }
+        return reverse;*/
     }
 
     /**
@@ -102,6 +108,12 @@ public class Stack<Item> implements Iterable<Item> {
         return first;
     }
 
+    /**
+     * 设置首结点
+     */
+    public void setFirst(Node first) {
+        this.first = first;
+    }
     @Override
     public Iterator<Item> iterator() {
         return new StackIterator();
@@ -156,5 +168,6 @@ public class Stack<Item> implements Iterable<Item> {
             }
         }
         StdOut.println("(" + s.size() + " left on stack)");
+        System.out.println(s.reverse(s.first));
     }
 }

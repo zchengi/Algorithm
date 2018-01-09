@@ -7,7 +7,7 @@ import edu.princeton.cs.algs4.*;
  * 生成n个随机的2D区间，其宽和高均匀地分布在单位正方形中的min和max之间。
  * 用StdDraw画出它们并打印出相交区间隔的数量以及有包含关系的间隔对数量。
  *
- * @author one
+ * @author cheng
  *         2017/10/18 18:44
  */
 public class Example3 {

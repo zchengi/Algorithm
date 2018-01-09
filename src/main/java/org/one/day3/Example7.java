@@ -3,7 +3,7 @@ package org.one.day3;
 /**
  * 以下递归函数的返回值是什么？
  *
- * @author one
+ * @author cheng
  *         2017/10/18 21:26
  */
 public class Example7 {

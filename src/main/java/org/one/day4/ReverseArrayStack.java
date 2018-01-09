@@ -7,7 +7,7 @@ import java.util.Iterator;
 
 /**
  * 一种表示泛型不定容栈的抽象数据类型
- * @author one
+ * @author cheng
  *         2017/10/19 20:16
  */
 public class ReverseArrayStack<Item> implements Iterable<Item>{

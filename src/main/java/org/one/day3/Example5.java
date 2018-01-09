@@ -3,7 +3,7 @@ package org.one.day3;
 /**
  * 这段代码会输出什么？
  *
- * @author one
+ * @author cheng
  *         2017/10/18 20:41
  */
 public class Example5 {

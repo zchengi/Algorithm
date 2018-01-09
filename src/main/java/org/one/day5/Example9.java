@@ -9,7 +9,7 @@ import org.example.Stack;
  * 例如,给定输入：1 + 2 ) * 3 - 4 ) * 5 - 6 ) ) )
  * 应该输出：( ( 1 + 2 ) * ( ( 3 - 4 ) * 5 - 6 ) ) )
  *
- * @author one
+ * @author cheng
  *         2017/10/20 21:49
  */
 public class Example9 {

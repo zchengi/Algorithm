@@ -6,7 +6,7 @@ import java.util.Iterator;
  * 1.3.33
  * 动态数组调整实现
  *
- * @author one
+ * @author cheng
  *         2017/10/23 13:03
  */
 public class ResizingArrayDeque<Item> implements Iterable<Item> {

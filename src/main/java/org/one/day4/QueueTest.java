@@ -7,7 +7,7 @@ import java.util.Arrays;
 
 /**
  * 先进先出队列的用例
- * @author one
+ * @author cheng
  *         2017/10/19 16:05
  */
 public class QueueTest {

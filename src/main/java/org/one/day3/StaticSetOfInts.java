@@ -6,7 +6,7 @@ import java.util.Arrays;
  * 二分查找
  * 用于在整数集合中进行查找的一种抽象数据类型
  *
- * @author one
+ * @author cheng
  *         2017/10/18 14:54
  */
 public class StaticSetOfInts {

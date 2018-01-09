@@ -8,7 +8,7 @@ import edu.princeton.cs.algs4.StdOut;
 /**
  * 背包的典型用例
  *
- * @author one
+ * @author cheng
  *         2017/10/19 15:39
  */
 public class Stats {

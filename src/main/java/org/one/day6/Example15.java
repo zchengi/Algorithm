@@ -7,7 +7,7 @@ import org.example.Queue;
  * 1.3.15 编写一个Queue的用例，接受一个命令行参数k并打印出标准输入中的倒数第k个字符串。
  * 假设标准输入中至少有k个字符串。
  *
- * @author one
+ * @author cheng
  *         2017/10/21 13:16
  */
 public class Example15 {

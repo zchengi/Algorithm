@@ -3,7 +3,7 @@ package org.one.day3;
 /**
  * 白名单检测用例（使用二分查找）
  *
- * @author one
+ * @author cheng
  *         2017/10/18 15:20
  */
 public class WhiteList {

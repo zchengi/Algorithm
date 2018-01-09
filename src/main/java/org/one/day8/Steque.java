@@ -16,7 +16,7 @@ import java.util.Iterator;
  * void enqueue(Item e)         添加一个元素到尾部
  * -----------------------------------------------------
  *
- * @author one
+ * @author cheng
  *         2017/10/23 12:09
  */
 public class Steque<Item> implements Iterable<Item> {

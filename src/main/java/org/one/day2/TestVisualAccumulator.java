@@ -4,7 +4,7 @@ package org.one.day2;
 import edu.princeton.cs.algs4.StdOut;
 
 /**
- * @author one
+ * @author cheng
  *         2017/10/17 22:34
  */
 public class TestVisualAccumulator {

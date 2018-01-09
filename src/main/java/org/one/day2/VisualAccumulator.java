@@ -4,7 +4,7 @@ import edu.princeton.cs.algs4.StdDraw;
 
 /**
  * 累加器（实现可视化）
- * @author one
+ * @author cheng
  *         2017/10/17 22:38
  */
 public class VisualAccumulator {

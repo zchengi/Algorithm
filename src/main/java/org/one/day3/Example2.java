@@ -9,7 +9,7 @@ import java.util.Scanner;
  * 编写一个Interval1D的用例，从命令行接收一个整数n。
  * 从标准输入中读取n个区间（每个区间由一对double值定义）并打印出相交的区间。
  *
- * @author one
+ * @author cheng
  *         2017/10/18 18:11
  */
 public class Example2 {

@@ -4,7 +4,7 @@ package org.one.day7;
  * 1.3.31
  * 实现一个嵌套类双向链表
  *
- * @author one
+ * @author cheng
  *         2017/10/22 14:33
  */
 public class DoubleList<Item> {

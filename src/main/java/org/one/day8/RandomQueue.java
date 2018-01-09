@@ -19,7 +19,7 @@ import java.util.Iterator;
  * Item sample()            随机返回一个元素但不删除它（取样且放回）
  * -----------------------------------------------------
  *
- * @author one
+ * @author cheng
  *         2017/10/23 13:25
  */
 public class RandomQueue<Item> implements Iterable<Item> {
@@ -27,43 +27,43 @@ public class RandomQueue<Item> implements Iterable<Item> {
     @SuppressWarnings("unchecked")
     private Item[] a = (Item[]) new Object[1];
 
-    private int N;
+    private int size;
 
     public boolean isEmpty() {
-        return N == 0;
+        return size == 0;
     }
 
     public int size() {
-        return N;
+        return size;
     }
 
     @SuppressWarnings("unchecked")
     private void resize(int cap) {
         Item[] tmp = (Item[]) new Object[cap];
-        for (int i = 0; i < N; i++) {
+        for (int i = 0; i < size; i++) {
             tmp[i] = a[i];
         }
         a = tmp;
     }
 
     public void enqueue(Item item) {
-        if (N == a.length) {
+        if (size == a.length) {
             resize(2 * a.length);
         }
-        a[N++] = item;
+        a[size++] = item;
     }
 
     public Item dequeue() {
         if (isEmpty()) {
             return null;
         }
-        int index = StdRandom.uniform(N);
+        int index = StdRandom.uniform(size);
         Item indexTmp = a[index];
-        a[index] = a[N - 1];
-        a[N - 1] = indexTmp;
-        Item temp = a[--N];
-        a[N] = null;
-        if (N == a.length / 4) {
+        a[index] = a[size - 1];
+        a[size - 1] = indexTmp;
+        Item temp = a[--size];
+        a[size] = null;
+        if (size == a.length / 4) {
             resize(a.length / 2);
         }
         return temp;
@@ -73,7 +73,7 @@ public class RandomQueue<Item> implements Iterable<Item> {
         if (isEmpty()) {
             return null;
         }
-        int index = StdRandom.uniform(N);
+        int index = StdRandom.uniform(0, size);
         return a[index];
     }
 
@@ -83,21 +83,34 @@ public class RandomQueue<Item> implements Iterable<Item> {
      * 随机返回队列中的所有元素
      */
     public Iterator<Item> iterator() {
-        return new ReverseIterator();
+        return new RandomQueueIterator();
     }
 
-    private class ReverseIterator implements Iterator<Item> {
+    private class RandomQueueIterator implements Iterator<Item> {
 
-        private int i = N;
+        private int index;
+
+        private Item[] iteratorArrays;
+
+        @SuppressWarnings("unchecked")
+        private RandomQueueIterator() {
+            iteratorArrays = (Item[]) new Object[size];
+            for (int i = 0; i < size; i++) {
+                iteratorArrays[i] = a[i];
+            }
+            StdRandom.shuffle(iteratorArrays);
+            index = 0;
+        }
+
 
         @Override
         public boolean hasNext() {
-            return N > 0;
+            return index < size;
         }
 
         @Override
         public Item next() {
-            return a[--N];
+            return iteratorArrays[index++];
         }
 
         @Override
@@ -113,6 +126,9 @@ public class RandomQueue<Item> implements Iterable<Item> {
         System.out.println(queue.sample());
         System.out.println(queue.sample());
         System.out.println(queue.sample());
+        for (Integer i : queue) {
+            System.out.print(i + " ");
+        }
     }
 }
 

@@ -18,7 +18,7 @@ import java.util.Iterator;
  * void add(Item item)  添加一个元素
  * -----------------------------------------------------
  *
- * @author one
+ * @author cheng
  *         2017/10/23 13:28
  */
 public class RandomBag<Item> implements Iterable<Item> {

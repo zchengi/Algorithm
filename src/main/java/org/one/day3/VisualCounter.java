@@ -8,7 +8,7 @@ import edu.princeton.cs.algs4.StdDraw;
  * 它的构造函数接受两个参数n和max，其中n指定了操作的最大次数，max指定了计数器的最大绝对值。
  * 作为副作用，用图像显示每次计数器变化后的值。
  *
- * @author one
+ * @author cheng
  *         2017/10/18 22:15
  */
 public class VisualCounter {

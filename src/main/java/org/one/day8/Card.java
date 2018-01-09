@@ -6,7 +6,7 @@ import edu.princeton.cs.algs4.StdRandom;
  * 1.3.35
  * 在桥牌中发牌（每人13张）
  *
- * @author one
+ * @author cheng
  *         2017/10/23 14:13
  */
 public class Card {

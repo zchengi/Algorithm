@@ -3,7 +3,7 @@ package org.one.day2;
 import edu.princeton.cs.algs4.*;
 
 /**
- * @author one
+ * @author cheng
  *         2017/10/17 10:55
  */
 public class TestInterval2D {

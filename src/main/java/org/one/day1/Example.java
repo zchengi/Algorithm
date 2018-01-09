@@ -1,7 +1,7 @@
 package org.one.day1;
 
 /**
- * @author one
+ * @author cheng
  *         2017/10/16 21:28
  */
 public class Example {

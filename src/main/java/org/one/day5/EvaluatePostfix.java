@@ -7,7 +7,7 @@ import org.example.Stack;
  * 1.3.11
  * 从标准输入中得到一个后续表达式，求值并打印结果。
  *
- * @author one
+ * @author cheng
  *         2017/10/21 11:00
  */
 public class EvaluatePostfix {

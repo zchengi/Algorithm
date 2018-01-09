@@ -4,7 +4,7 @@ import java.util.Iterator;
 
 /**
  * 1.3.33
- * 一个双向队列和栈或队列累死，但它同时支持在两端添加或删除元素。
+ * 一个双向队列和栈或队列类似，但它同时支持在两端添加或删除元素。
  * Deque能够存储一组元素并支持如下API。
  * 使用一个动态数组调整实现这份API的 ResizingArrayDeque类。
  * <p>
@@ -20,7 +20,7 @@ import java.util.Iterator;
  * Item popRight()               从右羰删除一个元素
  * -----------------------------------------------------
  *
- * @author one
+ * @author cheng
  *         2017/10/23 12:25
  */
 public class Deque<Item> implements Iterable<Item> {

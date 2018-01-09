@@ -5,7 +5,7 @@ import edu.princeton.cs.algs4.StdIn;
 import java.util.Arrays;
 
 /**
- * @author one
+ * @author cheng
  *         2017/10/17 12:28
  */
 public class Example1 {

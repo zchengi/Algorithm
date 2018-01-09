@@ -6,7 +6,7 @@ package org.one.day3;
  * 使用欧几里德算法来保证分子和分母没有公因子。
  * 添加断言来防止溢出。
  *
- * @author one
+ * @author cheng
  *         2017/10/19 11:31
  */
 public class Rational {

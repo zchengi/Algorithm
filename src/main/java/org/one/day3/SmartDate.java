@@ -6,7 +6,7 @@ package org.one.day3;
  * 根据Date的API实现一个SmartDate类型，在日期非法时抛出一个异常。
  * 为SmartDate添加一个方法dayOfTheWeek()，为日期中的每周的日返回Monday、Tuesday···Sunday中的适当值。可以假定时间是21世纪。
  *
- * @author one
+ * @author cheng
  *         2017/10/19 10:34
  */
 public class SmartDate {

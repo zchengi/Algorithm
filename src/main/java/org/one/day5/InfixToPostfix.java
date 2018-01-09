@@ -7,7 +7,7 @@ import org.example.Stack;
  * 1.3.10
  * 编写一个过滤器，将算数表达式由中序表达式转为后序表达式。
  *
- * @author one
+ * @author cheng
  *         2017/10/20 22:36
  */
 public class InfixToPostfix {

@@ -8,7 +8,7 @@ import java.util.Iterator;
  * 环形链表也是一条链表，只是没有任何结点链接为空，且只要链表非空则last.next的值就为first。
  * 只能使用一个Node类型的实例变量(last)。
  *
- * @author one
+ * @author cheng
  *         2017/10/22 12:23
  */
 public class CircleQueue<Item> implements Iterable<Item> {
