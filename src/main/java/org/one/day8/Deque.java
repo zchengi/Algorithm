@@ -144,8 +144,7 @@ public class Deque<Item> implements Iterable<Item> {
         for (String s : deque) {
             System.out.print(s+" ");
         }
-
-        System.out.println("\rpop up from right: ");
+        System.out.println("\npop up from right: ");
         while (!deque.isEmpty()) {
             System.out.println(deque.popRight());
         }
