@@ -21,14 +21,14 @@ public class StaticSetOfInts {
      */
     public StaticSetOfInts(int[] keys) {
 
-        //保护性复制
+        // 保护性复制
         a = new int[keys.length];
         System.arraycopy(keys, 0, a, 0, keys.length);
 
-        //排序
+        // 排序
         Arrays.sort(a);
 
-        //检查是否有重复整数
+        // 检查是否有重复整数
         for (int i = 1; i < a.length; i++) {
             if (a[i] == a[i - 1]) {
                 throw new IllegalArgumentException("参数数组包含重复的键");
@@ -61,7 +61,7 @@ public class StaticSetOfInts {
                 lo = mid + 1;
             } else if (key < a[mid]) {
                 hi = mid - 1;
-            } else if (key == a[mid]) {
+            } else {
                 return mid;
             }
         }
