@@ -17,11 +17,11 @@ public class SortCompare {
      */
     public static double time(String alg, Double[] a) {
         final Stopwatch timer = new Stopwatch();
-        if ("Insertion".equals(alg)) {
-           Insertion.sort(a);
-        }
         if ("Selection".equals(alg)) {
             Selection.sort(a);
+        }
+        if ("Insertion".equals(alg)) {
+            Insertion.sort(a);
         }
         if ("Shell".equals(alg)) {
             Shell.sort(a);
@@ -51,12 +51,12 @@ public class SortCompare {
         int n = in.readInt();
         int t = in.readInt();
 
-        double t1 = timerRandomInput("Insertion", n, t);
         double t2 = timerRandomInput("Selection", n, t);
+        double t1 = timerRandomInput("Insertion", n, t);
         double t3 = timerRandomInput("Shell", n, t);
 
-        System.out.println("Insertion算法用时：" + t1);
         System.out.println("Selection算法用时：" + t2);
+        System.out.println("Insertion算法用时：" + t1);
         System.out.println("Shell算法用时：" + t3);
     }
 }

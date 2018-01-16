@@ -32,9 +32,9 @@ public class Insertion {
     }
 
     private static void exch(Comparable[] a, int i, int j) {
-        Comparable t = a[i];
+        Comparable swap = a[i];
         a[i] = a[j];
-        a[j] = t;
+        a[j] = swap;
     }
 
     /**
