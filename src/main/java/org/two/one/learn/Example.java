@@ -13,7 +13,7 @@ public class Example {
 
     }
 
-    private static boolean less(Comparable v, Comparable w) {
+    public static boolean less(Comparable v, Comparable w) {
         return v.compareTo(w) < 0;
     }
 
