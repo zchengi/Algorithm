@@ -24,7 +24,21 @@ public class Insertion {
             for (int j = i; j > 0 && less(a[j], a[j - 1]); j--) {
                 exch(a, j, j - 1);
             }
+            assert isSorted(a);
         }
+        assert isSorted(a);
+    }
+
+    /**
+     * 重新排序数组 a[lo..hi]
+     */
+    public static void sort(Comparable[] a, int lo, int hi) {
+        for (int i = lo; i <= hi; i++) {
+            for (int j = i; j > lo && less(a[j], a[j - 1]); j--) {
+                exch(a, j, j - 1);
+            }
+        }
+        assert isSorted(a);
     }
 
     private static boolean less(Comparable v, Comparable w) {

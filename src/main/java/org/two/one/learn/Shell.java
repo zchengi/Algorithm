@@ -35,11 +35,11 @@ public class Shell {
         }
     }
 
-    private static boolean less(Comparable v, Comparable w) {
+    public static boolean less(Comparable v, Comparable w) {
         return v.compareTo(w) < 0;
     }
 
-    private static void exch(Comparable[] a, int i, int j) {
+    public static void exch(Comparable[] a, int i, int j) {
         Comparable swap = a[i];
         a[i] = a[j];
         a[j] = swap;
@@ -48,7 +48,7 @@ public class Shell {
     /**
      * 在单行中打印数组
      */
-    private static void show(Comparable[] a) {
+    public static void show(Comparable[] a) {
         for (int i = 0; i < a.length; i++) {
             System.out.print(a[i] + " ");
         }

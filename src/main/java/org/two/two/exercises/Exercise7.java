@@ -8,4 +8,13 @@ package org.two.two.exercises;
  */
 public class Exercise7 {
     // 由2.2.6图示证明
+    /*
+     * 因为当 N 是2的幂次方时，比较次数 C(N) = N * log(N)
+     *
+     * 因此 C(N + 1) - C(N) = (N + 1) * log(N + 1) - N * log(N)
+     *
+     * 因为 N 和 log(N) 都是单调递增函数，而单调递增函数之积仍然是单调递增的
+     *
+     * 所以 C(N) 是单调递增的
+     */
 }

@@ -32,17 +32,21 @@ public class DutchNationalFlag {
         int current = 0;
         int hi = n - 1;
         while (current <= hi) {
-            if (RED == color(current)) {
-                if (current != lo) {
-                    swap(current, lo);
-                }
-                current++;
-                lo++;
-            } else if (WHITE == color(current)) {
-                current++;
-            } else if (BLUE == color(current)) {
-                swap(current, hi);
-                hi--;
+            switch (color(current)) {
+                case RED:
+                    if (current != lo) {
+                        swap(current, lo);
+                    }
+                    current++;
+                    lo++;
+                    break;
+                case WHITE:
+                    current++;
+                    break;
+                case BLUE:
+                    swap(hi, current);
+                    hi--;
+                    break;
             }
         }
     }
@@ -81,15 +85,15 @@ public class DutchNationalFlag {
     public void quickSort3way() {
         int lt = 0;
         int gt = n - 1;
-        int i = 0;
-        while (i <= gt) {
-            int num = color(i);
-            if (num < WHITE) {
-                swap(lt++, i++);
-            } else if (num > WHITE) {
-                swap(i, gt--);
-            } else {
-                i++;
+        int current = 0;
+        while (current <= gt) {
+                    int num = color(current);
+                    if (num < WHITE) {
+                        swap(lt++, current++);
+                    } else if (num > WHITE) {
+                        swap(current, gt--);
+                    } else {
+                        current++;
             }
         }
     }
