@@ -1,5 +1,7 @@
 package org.two.two.learn;
 
+import org.two.one.learn.Insertion;
+
 /**
  * 算法2.4 自顶向下的归并排序
  * <p>
@@ -28,6 +30,12 @@ public class Merge {
      * 自顶向下归并排序
      */
     private static void sort(Comparable[] a, int lo, int hi) {
+        //
+        if (hi - lo <= 10) {
+            Insertion.sort(a);
+            return;
+        }
+
         // 将数组a[lo...hi]排序
         if (hi <= lo) {
             return;
@@ -37,6 +45,9 @@ public class Merge {
         sort(a, lo, mid);
         // 将右半边排序
         sort(a, mid + 1, hi);
+
+        if (less(a[mid], a[mid + 1])) return;  //优化2 判断归并前是否已经有序
+
         // 归并结果
         merge(a, lo, mid, hi);
     }

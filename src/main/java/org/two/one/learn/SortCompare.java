@@ -3,6 +3,7 @@ package org.two.one.learn;
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.StdRandom;
 import edu.princeton.cs.algs4.Stopwatch;
+import org.two.two.learn.Merge;
 
 /**
  * 2.1.5比较两种排序算法
@@ -17,15 +18,10 @@ public class SortCompare {
      */
     public static double time(String alg, Double[] a) {
         final Stopwatch timer = new Stopwatch();
-        if ("Selection".equals(alg)) {
-            Selection.sort(a);
-        }
-        if ("Insertion".equals(alg)) {
-            Insertion.sort(a);
-        }
-        if ("Shell".equals(alg)) {
-            Shell.sort(a);
-        }
+        if ("Selection".equals(alg)) Selection.sort(a);
+        if ("Insertion".equals(alg)) Insertion.sort(a);
+        if ("Shell".equals(alg)) Shell.sort(a);
+        if ("MergeSort".equals(alg)) Merge.sortBU(a);
         return timer.elapsedTime();
     }
 
@@ -47,16 +43,17 @@ public class SortCompare {
 
     public static void main(String[] args) {
         In in = new In();
-        // 1000 100
-        int n = in.readInt();
-        int t = in.readInt();
+        int n = 10000;
+        int t = 10;
 
         double t2 = timerRandomInput("Selection", n, t);
         double t1 = timerRandomInput("Insertion", n, t);
         double t3 = timerRandomInput("Shell", n, t);
+        double t4 = timerRandomInput("MergeSort", n, t);
 
         System.out.println("Selection算法用时：" + t2);
         System.out.println("Insertion算法用时：" + t1);
         System.out.println("Shell算法用时：" + t3);
+        System.out.println("MergeSort算法用时：" + t4);
     }
 }

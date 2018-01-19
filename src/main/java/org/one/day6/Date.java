@@ -22,7 +22,7 @@ public class Date {
     }
 
     public Date(String date) {
-        String[] str = date.split("\\/");
+        String[] str = date.split("/");
         if (str.length != 3) {
             throw new IllegalArgumentException("非法参数:" + date);
         }
