@@ -1,13 +1,11 @@
 package org.two.three.learn;
 
-import edu.princeton.cs.algs4.StdRandom;
-import org.tool.ArrayGenerator;
+import org.tool.SortTestHelper;
 import org.two.one.learn.Insertion;
-
-import java.util.Arrays;
 
 /**
  * 算法2.5 快速排序
+ * 单路扫描
  *
  * @author cheng
  *         2018/1/22 10:46
@@ -15,44 +13,52 @@ import java.util.Arrays;
 public class Quick {
 
     public static void sort(Comparable[] a) {
-        StdRandom.shuffle(a);
         sort(a, 0, a.length - 1);
     }
 
+    /**
+     * 对a[lo...hi]部分进行快速排序
+     */
     private static void sort(Comparable[] a, int lo, int hi) {
-        // 改进1：切换到插入排序
+        // 优化1：切换到插入排序
         // if (hi <= lo) return;
-        int m = 10;
-        if (hi <= lo + m) Insertion.sort(a);
         // 转换参数m的最佳值是和系统相关的，但是5 ~ 15之间的任意值在大多数情况下都能令人满意。
+        if (hi - lo <= 15) {
+            Insertion.sort(a, lo, hi);
+            return;
+        }
 
         // 切分
-        int j = partition(a, lo, hi);
-        // 将左半部分a[lo .. j-1]排序
-        sort(a, lo, j - 1);
-        // 将右半部分a[j+1 .. hi]排序
-        sort(a, j + 1, hi);
+        int p = partition(a, lo, hi);
+        // 将左半部分a[lo...p-1]排序
+        sort(a, lo, p - 1);
+        // 将右半部分a[p+1...hi]排序
+        sort(a, p + 1, hi);
     }
 
     /**
      * 快速排序的切分
+     * 返回p, 使得arr[lo...p-1] < arr[p] ; arr[p+1...hi] > arr[p]
      */
     private static int partition(Comparable[] a, int lo, int hi) {
-        // 将数组切分为a[lo .. i-1], a[i], a[i+1 .. hi]
-        // 左右扫描指针
-        int i = lo, j = hi + 1;
-        // 切分元素
+
+        // Comparable v = a[lo];
+
+        // 优化2 随机在a[lo...hi]的范围中，选择一个数组作为标定点pivot
+        // 解决了对于近乎有序的数组快速排序退化为O(n^2)的问题
+        // 但是相应的，对于普通数组而言，性能下降了一点点
+        exch(a, lo, (int) (Math.random() * (hi - lo + 1)) + lo);
         Comparable v = a[lo];
-        while (true) {
-            // 扫描左右，检查扫描是否结束并交换元素
-            while (less(a[++i], v)) if (i == hi) break;
-            while (less(v, a[--j])) if (j == lo) break;
-            if (i >= j) break;
-            exch(a, i, j);
+
+        int j = lo;
+        // 最终 arr[l+1...j] < v; arr[j+1...i-1] > v
+        for (int i = lo + 1; i <= hi; i++) {
+            if (a[i].compareTo(v) < 0) {
+                exch(a, ++j, i);
+            }
         }
-        // 将 v = a[j] 放入正确的位置
         exch(a, lo, j);
-        // a[lo .. j-1] <= a[j] <= a[j+1 .. hi] 达成
+
         return j;
     }
 
@@ -62,17 +68,13 @@ public class Quick {
         a[j] = temp;
     }
 
-    @SuppressWarnings("unchecked")
-    private static boolean less(Comparable v, Comparable w) {
-        return v.compareTo(w) < 0;
-    }
-
-
     public static void main(String[] args) {
-        Integer[] arr = ArrayGenerator.Integers(0, 20);
-        System.out.println(Arrays.toString(arr));
 
-        sort(arr);
-        System.out.println(Arrays.toString(arr));
+        // Quick Sort也是一个O(nlogn)复杂度的算法
+        // 可以在1秒之内轻松处理100万数量级的数据
+        Integer[] arr = SortTestHelper.generateRandomArray(1000000, 1, 5000000);
+        SortTestHelper.testSort("org.two.three.learn.Quick", arr);
+        // SortTestHelper.printArray(arr);
+
     }
 }

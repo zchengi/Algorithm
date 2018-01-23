@@ -1,6 +1,7 @@
 package org.two.two.learn;
 
-import org.two.one.learn.Insertion;
+import org.tool.SortTestHelper;
+import org.two.one.learn.InsertionFaster;
 
 /**
  * 算法2.4 自顶向下的归并排序
@@ -30,65 +31,56 @@ public class Merge {
      * 自顶向下归并排序
      */
     private static void sort(Comparable[] a, int lo, int hi) {
-        //
-        if (hi - lo <= 10) {
-            Insertion.sort(a);
+        // 优化1 对于小规模数组，使用插入排序
+        if (hi - lo <= 15) {
+            InsertionFaster.sort(a, lo, hi);
             return;
         }
+       /* if (hi <= lo) {
+            return;
+        }*/
 
         // 将数组a[lo...hi]排序
-        if (hi <= lo) {
-            return;
-        }
         int mid = lo + (hi - lo) / 2;
         // 将左半边排序
         sort(a, lo, mid);
         // 将右半边排序
         sort(a, mid + 1, hi);
 
-        if (less(a[mid], a[mid + 1])) return;  //优化2 判断归并前是否已经有序
+        // 优化2 对于a[mid] <= a[mid+1]的情况，不进行merge
+        // 对于近乎有序的数组非常有效,但是对于一般情况,有一定的性能损失
+        if (less(a[mid], a[mid + 1])) return;
 
         // 归并结果
         merge(a, lo, mid, hi);
     }
 
     /**
-     * 2.2.3 自底向上的归并排序
-     * 分析：自底向上的归并排序会多次遍历整个数组，根据子数组大小进行两两归并。子数组的大小sz的初始值为1，
-     * 每次加倍。最后一个子数组的大小只有在数组大小是sz的偶数倍的时候才会等于sz（否则它会比sz小）。
-     */
-    public static void sortBU(Comparable[] a) {
-        // 进行lgN次两两合并
-        int n = a.length;
-        aux = new Comparable[n];
-        // sz：子数组大小
-        for (int sz = 1; sz < n; sz += sz) {
-            // lo：子数组索引
-            for (int lo = 0; lo < n - sz; lo += sz + sz) {
-                merge(a, lo, lo + sz - 1, Math.min(lo + sz + sz - 1, n - 1
-                ));
-            }
-        }
-    }
-
-    /**
      * 原地归并的抽象方法
      */
-    public static void merge(Comparable[] a, int lo, int mid, int hi) {
-        // 将a[lo...mid] 和 a[mid+1...hi] 归并
-        int i = lo, j = mid + 1;
+    private static void merge(Comparable[] a, int lo, int mid, int hi) {
+
         // 将a[lo...hi] 复制到 aux[lo...hi]
         System.arraycopy(a, lo, aux, lo, hi + 1 - lo);
+
+        // 将a[lo...mid] 和 a[mid+1...hi] 归并
+        int i = lo, j = mid + 1;
+
         // 归并回到a[lo...hi]
         for (int k = lo; k <= hi; k++) {
-            // 左半边用尽（取右半边元素）
-            if (i > mid) a[k] = aux[j++];
-                // 右半边用尽（取左半边元素）
-            else if (j > hi) a[k] = aux[i++];
-                // 右半边的当前元素小于左半边的当前元素（取右半边元素）
-            else if (less(aux[j], aux[i])) a[k] = aux[j++];
-                // 右半边的当前元素大于左半边的当前元素（取左半边元素）
-            else a[k] = aux[i++];
+            if (i > mid) {
+                // 左半边元素已经全部处理完毕（取右半边元素）
+                a[k] = aux[j++];
+            } else if (j > hi) {
+                // 右半边元素已经全部处理完毕（取左半边元素）
+                a[k] = aux[i++];
+            } else if (less(aux[j], aux[i])) {
+                // 右半边的当前元素 < 左半边的当前元素（取右半边元素）
+                a[k] = aux[j++];
+            } else {
+                // 右半边的当前元素 > 左半边的当前元素（取左半边元素）
+                a[k] = aux[i++];
+            }
         }
     }
 
@@ -105,8 +97,17 @@ public class Merge {
     }
 
     public static void main(String[] args) {
+
+        // Merge Sort是我学习的第一个O(nlogn)复杂度的算法
+        // 可以在1秒之内轻松处理10万数量级的数据
+        // 注意：不要尝试使用SelectionSort，InsertionSort或者BubbleSort处理100万级的数字局
+        // 否则，你就见识到了O(n^2)的算法和O(nlogn)算法的本质差异
+
         String[] a = {"M", "E", "R", "G", "E", "S", "O", "R", "T", "E", "X", "A", "M", "P", "L", "E"};
-        sortBU(a);
+        sort(a);
         show(a);
+
+        Integer[] arr = SortTestHelper.generateRandomArray(1000000, 1, 5000000);
+        SortTestHelper.testSort("org.two.two.learn.Merge", arr);
     }
 }

@@ -21,13 +21,13 @@ public class Selection {
         // 将a[i]和a[i+1..N]中最小的元素交换
         for (int i = 0; i < n; i++) {
             // 最小元素的索引
-            int min = i;
+            int minIndex = i;
             for (int j = i + 1; j < n; j++) {
-                if (less(a[j], a[min])) {
-                    min = j;
+                if (less(a[j], a[minIndex])) {
+                    minIndex = j;
                 }
             }
-            exch(a, i, min);
+            exch(a, i, minIndex);
         }
     }
 
@@ -45,8 +45,8 @@ public class Selection {
      * 在单行中打印数组
      */
     private static void show(Comparable[] a) {
-        for (int i = 0; i < a.length; i++) {
-            System.out.print(a[i] + " ");
+        for (Comparable item : a) {
+            System.out.print(item + " ");
         }
         System.out.println();
     }

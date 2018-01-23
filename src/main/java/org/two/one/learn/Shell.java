@@ -17,19 +17,27 @@ public class Shell {
      * 将数组按升序排列
      */
     public static void sort(Comparable[] a) {
+
         int n = a.length;
+
         int h = 1;
         // 1, 4, 13, 40, 121, 364, 1093,.....
-        while (h < n / 3) {
-            h = 3 * h + 1;
-        }
+        while (h < n / 3) h = 3 * h + 1;
+
         //将数组变为h有序
         while (h >= 1) {
             for (int i = h; i < n; i++) {
-                // 将a[i]插入到a[i-h],a[i-2*h],a[i-3*h]...之中
-                for (int j = i; j >= h && less(a[j], a[j - h]); j-=h) {
+                // 对a[i],a[i-h],a[i-2*h],a[i-3*h]...使用插入排序
+                /* for (int j = i; j >= h && less(a[j], a[j - h]); j-=h) {
                     exch(a, j, j - h);
+                }*/
+                // 优化
+                Comparable temp = a[i];
+                int j = i;
+                for (; j >= h && less(temp, a[j - h]); j--) {
+                    a[j] = a[j - h];
                 }
+                a[j] = temp;
             }
             h = h / 3;
         }
@@ -49,8 +57,8 @@ public class Shell {
      * 在单行中打印数组
      */
     public static void show(Comparable[] a) {
-        for (int i = 0; i < a.length; i++) {
-            System.out.print(a[i] + " ");
+        for (Comparable item : a) {
+            System.out.print(item + " ");
         }
         System.out.println();
     }

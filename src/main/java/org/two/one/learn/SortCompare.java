@@ -3,7 +3,7 @@ package org.two.one.learn;
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.StdRandom;
 import edu.princeton.cs.algs4.Stopwatch;
-import org.two.two.learn.Merge;
+import org.two.two.learn.MergeBU;
 
 /**
  * 2.1.5比较两种排序算法
@@ -19,9 +19,9 @@ public class SortCompare {
     public static double time(String alg, Double[] a) {
         final Stopwatch timer = new Stopwatch();
         if ("Selection".equals(alg)) Selection.sort(a);
-        if ("Insertion".equals(alg)) Insertion.sort(a);
+        if ("Insertion".equals(alg)) InsertionFaster.sort(a);
         if ("Shell".equals(alg)) Shell.sort(a);
-        if ("MergeSort".equals(alg)) Merge.sortBU(a);
+        if ("MergeSort".equals(alg)) MergeBU.sort(a);
         return timer.elapsedTime();
     }
 
