@@ -93,7 +93,7 @@ public class Exercise3 {
                 print(copy);
                 StdOut.printf("最大元素 %d 的交换次数为 : %d\n", max, exchanges);
                 System.out.println(Arrays.toString(a));
-                // break;
+                break;
             }
         }
 

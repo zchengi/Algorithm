@@ -39,12 +39,9 @@ public class Quick3Ways {
         int i = lo + 1;
         while (i < gt) {
             if (arr[i].compareTo(v) < 0) {
-                exch(arr, i, lt + 1);
-                i++;
-                lt++;
+                exch(arr, i++, ++lt);
             } else if (arr[i].compareTo(v) > 0) {
-                exch(arr, i, gt - 1);
-                gt--;
+                exch(arr, i, --gt);
             } else {
                 // arr[i] == v
                 i++;
@@ -52,7 +49,7 @@ public class Quick3Ways {
         }
         exch(arr, lo, lt);
 
-        // 现在a[lo .. lt] < v = a(lt .. gt) < a[gt .. hi]成立
+        // 现在arr[lo .. lt-1] < v = arr[lt .. gt-1] < arr[gt .. hi]成立
         sort(arr, lo, lt - 1);
         sort(arr, gt, hi);
     }
@@ -68,7 +65,7 @@ public class Quick3Ways {
         // 三路快速排序算法也是一个O(nlogn)复杂度的算法
         // 可以在1秒之内轻松处理100万数量级的数据
         int n = 1000000;
-        Integer[] arr = SortTestHelper.generateRandomArray(n, 0, 100000);
+        Integer[] arr = SortTestHelper.generateRandomArray(n, 0, n);
         SortTestHelper.testSort("org.two.three.learn.Quick3Ways", arr);
     }
 }

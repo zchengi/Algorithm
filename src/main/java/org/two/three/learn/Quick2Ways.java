@@ -53,7 +53,7 @@ public class Quick2Ways {
             while (j >= lo + 1 && arr[j].compareTo(v) > 0) j--;
 
             // 对于上面两个边界的设定 答案参考 http://coding.imooc.com/learn/questiondetail/4920.html
-            // 不使用“=”是为了避免出现一方含有多个等于v的元素，这样做可以使两颗子树较平衡。
+            // 不使用“=”是为了避免出现一方含有多个等于v的元素，这样做可以使两颗子树较平衡，防止一棵树过大，一颗过小。
 
             if (i > j) break;
             swap(arr, i++, j--);
