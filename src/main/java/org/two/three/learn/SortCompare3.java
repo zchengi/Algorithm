@@ -10,7 +10,7 @@ import java.util.Arrays;
  * @author cheng
  *         2018/1/23 21:43
  */
-public class SortCompare2 {
+public class SortCompare3 {
 
     // 比较Merge Sort和Quick Sort两种排序算法的性能效率
     // 两种排序算法虽然都是O(nlogn)级别的，但是Quick Sort算法有常数级的优势

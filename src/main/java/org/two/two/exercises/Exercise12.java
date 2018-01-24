@@ -30,7 +30,7 @@ public class Exercise12 {
 
     private static void mergeSort(int[] a, int lo, int mid, int hi) {
         int[] aux = new int[hi - lo + 1];
-        System.arraycopy(a, lo, aux, lo, hi + 1 - lo);
+        System.arraycopy(a, lo, aux, lo, hi - lo + 1);
         int i = lo, j = mid + 1;
         for (int k = lo; k <= hi; k++) {
             if (i > mid) a[k] = aux[j++];

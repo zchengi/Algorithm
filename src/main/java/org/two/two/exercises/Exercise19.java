@@ -30,7 +30,7 @@ public class Exercise19 {
 
     private static int mergeSort(int[] a, int lo, int mid, int hi) {
         int inversions = 0;
-        System.arraycopy(a, lo, aux, lo, hi + 1 - lo);
+        System.arraycopy(a, lo, aux, lo, hi - lo + 1);
 
         int i = lo;
         int j = mid + 1;

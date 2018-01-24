@@ -33,7 +33,7 @@ public class Exercise20 {
     private static void mergeSort(int[] a, int[] perm, int lo, int mid, int hi) {
         int i = lo;
         int j = mid + 1;
-        System.arraycopy(perm, lo, aux, lo, hi + 1 - lo);
+        System.arraycopy(perm, lo, aux, lo, hi - lo + 1);
 
         for (int k = lo; k <= hi; k++) {
             if (i > mid) perm[k] = aux[j++];

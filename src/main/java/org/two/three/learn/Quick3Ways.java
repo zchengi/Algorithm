@@ -12,7 +12,7 @@ import org.two.one.learn.Insertion;
 public class Quick3Ways {
 
     public static void sort(Comparable[] arr) {
-        sort(arr, 0, arr.length-1);
+        sort(arr, 0, arr.length - 1);
     }
 
     /**

@@ -61,7 +61,7 @@ public class MergeBU {
     private static void merge(Comparable[] a, int lo, int mid, int hi) {
 
         // 将a[lo...hi] 复制到 aux[lo...hi]
-        System.arraycopy(a, lo, aux, lo, hi + 1 - lo);
+        System.arraycopy(a, lo, aux, lo, hi - lo + 1);
 
         // 将a[lo...mid] 和 a[mid+1...hi] 归并
         int i = lo, j = mid + 1;

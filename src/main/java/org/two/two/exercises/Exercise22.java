@@ -34,7 +34,7 @@ public class Exercise22 {
     }
 
     private static void mergeSort_3(int[] a, int lo, int mid_left, int mid_right, int hi) {
-        System.arraycopy(a, lo, aux, lo, hi + 1 - lo);
+        System.arraycopy(a, lo, aux, lo, hi - lo + 1);
 
         int i = lo;
         int j = mid_left + 1;

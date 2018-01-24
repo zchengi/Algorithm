@@ -61,7 +61,8 @@ public class Merge {
     private static void merge(Comparable[] a, int lo, int mid, int hi) {
 
         // 将a[lo...hi] 复制到 aux[lo...hi]
-        System.arraycopy(a, lo, aux, lo, hi + 1 - lo);
+        // 因为 hi 和 lo 是索引的位置，所以要复制的元素个数应该再加1，即 hi - lo + 1
+        System.arraycopy(a, lo, aux, lo, hi - lo + 1);
 
         // 将a[lo...mid] 和 a[mid+1...hi] 归并
         int i = lo, j = mid + 1;
