@@ -4,6 +4,7 @@
       <w>alphbets</w>
       <w>bitonic</w>
       <w>catenation</w>
+      <w>chebyshev</w>
       <w>coursera</w>
       <w>exch</w>
       <w>fget</w>
@@ -12,6 +13,7 @@
       <w>minium</w>
       <w>mlogn</w>
       <w>nget</w>
+      <w>nlog</w>
       <w>nlogn</w>
       <w>possion</w>
       <w>steque</w>
