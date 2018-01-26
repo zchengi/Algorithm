@@ -5,7 +5,10 @@ package org.two.three.exercises;
  * 比较第i大和第j大元素的概率为2(j-i)，并用该结论证明命题K。
  *
  * @author cheng
- *         2018/1/25 23:21
+ * 2018/1/25 23:21
  */
 public class Exercise14 {
+
+    // 与快速排序的实现有关，未证明。
+
 }
