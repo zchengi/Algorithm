@@ -59,11 +59,11 @@ public class Exercise18 {
     }
 
     public static void main(String[] args) {
-        int n = 10;
+        int n = 1000000;
         Integer[] arr1 = SortTestHelper.generateRandomArray(n, 0, n);
         Integer[] arr2 = Arrays.copyOf(arr1, arr1.length);
         SortTestHelper.testSort("org.two.three.exercises.Exercise18", arr1);
-        SortTestHelper.printArray(arr1);
+        // SortTestHelper.printArray(arr1);
         SortTestHelper.testSort("org.two.three.learn.Quick", arr2);
     }
 }
