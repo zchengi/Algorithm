@@ -49,10 +49,15 @@ public class Exercise22 {
 
         swap(arr, lo, j);
 
+        // pivot1
         int lt = j - 1;
+        // pivot2
         int gt = j + 1;
+        // 左起点
         int k = lo + 1;
+        // 右起点
         int m = hi;
+
         while (k <= p) {
             swap(arr, k++, lt--);
         }
