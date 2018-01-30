@@ -488,7 +488,7 @@ public class ArrayGenerator {
         if (size <= 0)
             throw new IllegalArgumentException("array size cannot be negative or zero!");
         Integer[] arr = Integers(size);
-        Arrays.sort(arr, Comparator.reverseOrder());
+        Arrays.sort1(arr, Comparator.reverseOrder());
         return arr;
     }*/
 
@@ -499,7 +499,7 @@ public class ArrayGenerator {
         if (lo >= hi)
             throw new IllegalArgumentException("lo cannot greater or equal than hi!");
         Integer[] arr = Integers(lo, hi);
-        Arrays.sort(arr, Comparator.reverseOrder());
+        Arrays.sort1(arr, Comparator.reverseOrder());
         return arr;
     }*/
 
@@ -656,7 +656,7 @@ public class ArrayGenerator {
         if (size <= 0)
             throw new IllegalArgumentException("array size cannot be negative or zero!");
         Integer[] arr = Integers(size);
-        Arrays.sort(arr, Comparator.reverseOrder());
+        Arrays.sort1(arr, Comparator.reverseOrder());
         return IntegerToInt(arr);
     }*/
 
@@ -667,7 +667,7 @@ public class ArrayGenerator {
         if (lo >= hi)
             throw new IllegalArgumentException("lo cannot greater or equal than hi!");
         Integer[] arr = Integers(lo, hi);
-        Arrays.sort(arr, Comparator.reverseOrder());
+        Arrays.sort1(arr, Comparator.reverseOrder());
         return IntegerToInt(arr);
     }*/
 

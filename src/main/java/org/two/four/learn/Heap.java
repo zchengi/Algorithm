@@ -19,14 +19,15 @@ public class Heap {
     public static void sort(Comparable[] arr) {
         int n = arr.length;
         // 堆的构造（堆有序）
+        // k = n /2 ：计算出非叶子结点的数目
         for (int k = n / 2; k >= 1; k--) {
             sink(arr, k, n);
         }
-        // 下沉排序
+        // 原地堆排序
         while (n > 1) {
             // 将最大元素删除，然后放入堆缩小后数组中空出来的位置
             exch(arr, 1, n--);
-            // 再构造一个堆有序
+            // 再构造一个最大堆
             sink(arr, 1, n);
         }
     }
@@ -44,7 +45,6 @@ public class Heap {
             i = j;
         }
     }
-
 
     private static boolean less(Comparable[] pq, int i, int j) {
         // i,j基于1，索引基于0

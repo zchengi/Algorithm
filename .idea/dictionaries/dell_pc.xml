@@ -2,6 +2,7 @@
   <dictionary name="dell-pc">
     <words>
       <w>alphbets</w>
+      <w>arraycopy</w>
       <w>bitonic</w>
       <w>catenation</w>
       <w>chebyshev</w>

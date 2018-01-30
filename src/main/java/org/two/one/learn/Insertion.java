@@ -1,7 +1,5 @@
 package org.two.one.learn;
 
-import edu.princeton.cs.algs4.In;
-
 /**
  * 算法2.2 插入排序
  * <p>
@@ -24,10 +22,11 @@ public class Insertion {
             for (int j = i; j > 0 && less(a[j], a[j - 1]); j--) {
                 exch(a, j, j - 1);
             }
-            assert isSorted(a);
+            assert isSorted(a, 0, i);
         }
         assert isSorted(a);
     }
+
 
     /**
      * 重新排序数组 a[lo..hi]
@@ -38,7 +37,7 @@ public class Insertion {
                 exch(a, j, j - 1);
             }
         }
-        assert isSorted(a);
+        assert isSorted(a, lo, hi);
     }
 
     private static boolean less(Comparable v, Comparable w) {
@@ -71,9 +70,17 @@ public class Insertion {
         return true;
     }
 
+    private static boolean isSorted(Comparable[] a, int lo, int hi) {
+        for (int i = lo + 1; i < hi; i++) {
+            if (less(a[i], a[i - 1])) return false;
+        }
+        return true;
+    }
+
+
     public static void main(String[] args) {
         // 从标准输入读取字符串，将它们排序并输出
-        String[] a = new In().readAllStrings();
+        String[] a = {"a", "c", "f", "e", "t", "t", "w", "t"};
         sort(a);
         assert isSorted(a);
         show(a);

@@ -12,7 +12,6 @@ import java.util.NoSuchElementException;
  * @author cheng
  *         2018/1/29 14:14
  */
-@SuppressWarnings("unchecked")
 public class MaxPQ<Key> implements Iterable<Key> {
 
     /**
@@ -21,7 +20,7 @@ public class MaxPQ<Key> implements Iterable<Key> {
     private Key[] pq;
 
     /**
-     * 存储pq[1..n]中，pq[0]不使用
+     * 存储pq[1..n]中，pq[0]不使用，元素个数
      */
     private int n;
 

@@ -36,6 +36,7 @@ public class SortCompare4 {
             time4 += SortTestHelper.testSort2("org.two.three.learn.Quick2Ways", arr4);
             time5 += SortTestHelper.testSort2("org.two.three.learn.Quick3Ways", arr5);
         }
+
         System.out.println("Sorting " + n + " elements " + t + " times. Calculate the average run time.");
         System.out.println("Shell Sort        Average Run Time: " + time1 / t + " ms");
         System.out.println("Merge Sort        Average Run Time: " + time2 / t + " ms");

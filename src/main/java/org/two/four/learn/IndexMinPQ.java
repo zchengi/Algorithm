@@ -9,6 +9,7 @@ import java.util.NoSuchElementException;
 /**
  * 2.4.4.6 关联索引的泛型优先队列
  * 从小到大
+ * 使用反向查找
  * @author cheng
  *         2018/1/29 16:23
  */
