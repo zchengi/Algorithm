@@ -9,8 +9,8 @@ import org.tool.SortTestHelper;
  * @author cheng
  *         2018/1/30 17:00
  */
-public class HeapSort {
-    private HeapSort() {
+public class MaxHeapSort {
+    private MaxHeapSort() {
     }
 
     public static void sort(Comparable[] arr) {
@@ -20,13 +20,13 @@ public class HeapSort {
         // 从（最后一个元素的索引-1）/2 开始
         // 最后一个元素的索引为 = n - 1
         for (int i = (n - 1 - 1) / 2; i >= 0; i--) {
-            shiftDown(arr, n, i);
+            shiftDown2(arr, n, i);
         }
 
 
         for (int i = n - 1; i > 0; i--) {
             swap(arr, 0, i);
-            shiftDown(arr, i, 0);
+            shiftDown2(arr, i, 0);
         }
     }
 
@@ -84,7 +84,7 @@ public class HeapSort {
         while (i-- > 0) {
             Integer[] arr = SortTestHelper.generateRandomArray(n, 0, n);
             sort(arr);
-            time += SortTestHelper.testSort2("org.two.four.learn2.HeapSort", arr);
+            time += SortTestHelper.testSort2("org.two.four.learn2.MaxHeapSort", arr);
         }
 
         System.out.println(time);

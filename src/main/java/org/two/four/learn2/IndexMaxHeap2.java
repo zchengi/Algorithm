@@ -3,7 +3,7 @@ package org.two.four.learn2;
 import java.util.Arrays;
 
 /**
- * 索引最大堆优化  ：反向查找
+ * 最大索引堆优化  ：反向查找
  * 在堆的有关操作中，需要比较堆中元素的大小，所以 Item 需要 extends Comparable
  * 所有比较data的部分都必须套上indexes索引再比较
  * 在后续的图论中，无论是最小生成树算法，还是最短路径算法，我们都需要使用索引堆进行优化。
@@ -228,14 +228,14 @@ public class IndexMaxHeap2<Item extends Comparable> {
     }
 
     public static void main(String[] args) {
-        int N = 10;
+        int N = 1000000;
         IndexMaxHeap2<Integer> indexMaxHeap = new IndexMaxHeap2<>(N);
 
         for (int i = 0; i < N; i++) {
             indexMaxHeap.insert(i, (int) (Math.random() * N));
         }
-        System.out.println("索引最大堆的索引：" + indexMaxHeap.testIndexes());
+        System.out.println("最大索引堆的索引：" + indexMaxHeap.testIndexes());
 
-        // 验证排序正确性：IndexHeapSort.java
+        // 验证排序正确性：IndexMaxHeapSort.java
     }
 }

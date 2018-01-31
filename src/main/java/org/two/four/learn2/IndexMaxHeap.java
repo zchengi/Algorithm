@@ -3,7 +3,7 @@ package org.two.four.learn2;
 import java.util.Arrays;
 
 /**
- * 索引最大堆
+ * 最大索引堆
  * 在堆的有关操作中，需要比较堆中元素的大小，所以 Item 需要 extends Comparable
  * 所有比较data的部分都必须套上indexes索引再比较
  *
@@ -202,14 +202,14 @@ public class IndexMaxHeap<Item extends Comparable> {
     }
 
     public static void main(String[] args) {
-        int N = 10;
+        int N = 1000000;
         IndexMaxHeap<Integer> indexMaxHeap = new IndexMaxHeap<>(N);
 
         for (int i = 0; i < N; i++) {
             indexMaxHeap.insert(i, (int) (Math.random() * N));
         }
-        System.out.println("索引最大堆的索引：" + indexMaxHeap.testIndexes());
+        System.out.println("最大索引堆的索引：" + indexMaxHeap.testIndexes());
 
-        // 验证排序正确性：IndexHeapSort.java
+        // 验证排序正确性：IndexMaxHeapSort.java
     }
 }

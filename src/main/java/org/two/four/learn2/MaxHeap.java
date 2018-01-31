@@ -70,7 +70,8 @@ public class MaxHeap<Item extends Comparable> {
     public Item extractMax() {
         assert count > 0;
         Item ret = data[1];
-        swap(1, count--);
+        data[1] = data[count--];
+
         shiftDown(1);
         return ret;
     }
@@ -108,7 +109,6 @@ public class MaxHeap<Item extends Comparable> {
         data[j] = temp;
     }
 
-
     public int size() {
         return count;
     }
@@ -117,6 +117,15 @@ public class MaxHeap<Item extends Comparable> {
         return count == 0;
     }
 
+    /**
+     * 打印当前最大堆
+     */
+    public void show() {
+        for (int i = 1; i < count + 1; i++) {
+            System.out.print(data[i] + " ");
+        }
+        System.out.println();
+    }
 
     private boolean less(int i, int j) {
         return data[i].compareTo(data[j]) < 0;
@@ -127,7 +136,7 @@ public class MaxHeap<Item extends Comparable> {
 
         // 堆中元素个数
         int n = 50;
-        // 堆中元素取值
+        // 堆中元素取值范围[0,m)
         int m = 100;
         for (int i = 0; i < n; i++) {
             maxHeap.insert((int) (Math.random() * m));

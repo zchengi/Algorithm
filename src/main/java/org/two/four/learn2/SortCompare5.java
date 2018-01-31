@@ -35,9 +35,9 @@ public class SortCompare5 {
         SortTestHelper.testSort("org.two.three.learn.Quick", arr2);
         SortTestHelper.testSort("org.two.three.learn.Quick2Ways", arr3);
         SortTestHelper.testSort("org.two.three.learn.Quick3Ways", arr4);
-        SortTestHelper.testSort("org.two.four.learn2.HeapSort1", arr5);
-        SortTestHelper.testSort("org.two.four.learn2.HeapSort2", arr6);
-        SortTestHelper.testSort("org.two.four.learn2.HeapSort", arr7);
+        SortTestHelper.testSort("org.two.four.learn2.MaxHeapSort1", arr5);
+        SortTestHelper.testSort("org.two.four.learn2.MaxHeapSort2", arr6);
+        SortTestHelper.testSort("org.two.four.learn2.MaxHeapSort", arr7);
 
         System.out.println();
 
@@ -59,9 +59,9 @@ public class SortCompare5 {
         SortTestHelper.testSort("org.two.three.learn.Quick", arr2);
         SortTestHelper.testSort("org.two.three.learn.Quick2Ways", arr3);
         SortTestHelper.testSort("org.two.three.learn.Quick3Ways", arr4);
-        SortTestHelper.testSort("org.two.four.learn2.HeapSort1", arr5);
-        SortTestHelper.testSort("org.two.four.learn2.HeapSort2", arr6);
-        SortTestHelper.testSort("org.two.four.learn2.HeapSort", arr7);
+        SortTestHelper.testSort("org.two.four.learn2.MaxHeapSort1", arr5);
+        SortTestHelper.testSort("org.two.four.learn2.MaxHeapSort2", arr6);
+        SortTestHelper.testSort("org.two.four.learn2.MaxHeapSort", arr7);
 
         System.out.println();
 
@@ -81,9 +81,9 @@ public class SortCompare5 {
         // SortTestHelper.testSort("org.two.three.learn.Quick", arr2);
         SortTestHelper.testSort("org.two.three.learn.Quick2Ways", arr3);
         SortTestHelper.testSort("org.two.three.learn.Quick3Ways", arr4);
-        SortTestHelper.testSort("org.two.four.learn2.HeapSort1", arr5);
-        SortTestHelper.testSort("org.two.four.learn2.HeapSort2", arr6);
-        SortTestHelper.testSort("org.two.four.learn2.HeapSort", arr7);
+        SortTestHelper.testSort("org.two.four.learn2.MaxHeapSort1", arr5);
+        SortTestHelper.testSort("org.two.four.learn2.MaxHeapSort2", arr6);
+        SortTestHelper.testSort("org.two.four.learn2.MaxHeapSort", arr7);
 
     }
 }

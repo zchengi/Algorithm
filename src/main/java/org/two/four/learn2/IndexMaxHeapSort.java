@@ -5,15 +5,15 @@ import org.tool.SortTestHelper;
 import java.util.Arrays;
 
 /**
- * 使用索引最大堆进行堆排序，来验证我们的索引最大堆的正确性
- * 索引最大堆的主要作用不是用于排序，我们在这里使用排序只是为了验证我们的索引最大堆实现的正确性。
+ * 使用最大索引堆进行堆排序，来验证我们的最大索引堆的正确性
+ * 最大索引堆的主要作用不是用于排序，我们在这里使用排序只是为了验证我们的最大索引堆实现的正确性。
  * 在后续的图论中，无论是最小生成树算法，还是最短路径算法，我们都需要使用索引堆进行优化......
  *
  * @author cheng
  *         2018/1/30 20:22
  */
-public class IndexHeapSort {
-    public IndexHeapSort() {
+public class IndexMaxHeapSort {
+    public IndexMaxHeapSort() {
     }
 
     public static void sort(Comparable[] arr) {
