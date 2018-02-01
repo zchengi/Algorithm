@@ -69,11 +69,14 @@ public class MaxHeap<Item extends Comparable> {
      */
     public Item extractMax() {
         assert count > 0;
-        Item ret = data[1];
+        Item max = data[1];
         data[1] = data[count--];
 
+        //避免对象游离
+        data[count+1] = null;
+
         shiftDown(1);
-        return ret;
+        return max;
     }
 
     /**

@@ -75,7 +75,6 @@ public class MaxPQ<Key> implements Iterable<Key> {
         assert isMaxHeap();
     }
 
-
     public void insert(Key key) {
         if (n == pq.length - 1) {
             resize(pq.length * 2);
@@ -84,7 +83,6 @@ public class MaxPQ<Key> implements Iterable<Key> {
         swim(n);
         assert isMaxHeap();
     }
-
 
     public Key delMax() {
         if (isEmpty()) {
