@@ -143,9 +143,10 @@ public class Exercise14 {
     public static void main(String[] args) {
         // 删除一个最大元素的最少操作
         construct3ExchangesHeap();
-        // 删除两个最大元素的最少操作
 
+        // 删除两个最大元素的最少操作
         construct5ExchangesHeap();
+
         // 删除三个最大元素的最少操作
         construct8ExchangesHeap();
 
