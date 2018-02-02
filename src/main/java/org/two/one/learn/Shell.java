@@ -21,20 +21,23 @@ public class Shell {
         int n = a.length;
 
         int h = 1;
-        // 1, 4, 13, 40, 121, 364, 1093,.....
+        // 计算 increment sequence: 1, 4, 13, 40, 121, 364, 1093,.....
         while (h < n / 3) h = 3 * h + 1;
 
         //将数组变为h有序
         while (h >= 1) {
+
+            // h-sort the array
             for (int i = h; i < n; i++) {
                 // 对a[i],a[i-h],a[i-2*h],a[i-3*h]...使用插入排序
                 /* for (int j = i; j >= h && less(a[j], a[j - h]); j-=h) {
                     exch(a, j, j - h);
                 }*/
                 // 优化
+                // 对 arr[i], arr[i-h], arr[i-2*h], arr[i-3*h]... 使用插入排序
                 Comparable temp = a[i];
                 int j = i;
-                for (; j >= h && less(temp, a[j - h]); j--) {
+                for (; j >= h && less(temp, a[j - h]); j -= h) {
                     a[j] = a[j - h];
                 }
                 a[j] = temp;
