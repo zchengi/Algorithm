@@ -1,4 +1,4 @@
-package org.two.four.learn2;
+package org.two.four.exercises;
 
 /**
  * 2.4.20 证明：基于下沉的堆构造方法使用的比较次数小于2N，交换次数小于N。
