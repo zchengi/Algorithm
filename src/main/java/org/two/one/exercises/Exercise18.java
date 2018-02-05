@@ -2,7 +2,7 @@ package org.two.one.exercises;
 
 import edu.princeton.cs.algs4.StdDraw;
 import edu.princeton.cs.algs4.StdRandom;
-import org.two.one.learn.Example;
+import org.two.one.learn.Template;
 
 /**
  * 2.1.18 可视轨迹。修改你为上一题给出的解答，为插入排序和选择排序生成和正文中类似的可视轨迹。
@@ -12,7 +12,7 @@ import org.two.one.learn.Example;
  * @author cheng
  *         2018/1/18 14:37
  */
-public class Exercise18 extends Example {
+public class Exercise18 extends Template {
     public static void sort(Comparable[] a) {
         int n = a.length;
         for (int i = 0; i < n; i++) {

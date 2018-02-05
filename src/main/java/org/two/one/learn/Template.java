@@ -8,7 +8,7 @@ import edu.princeton.cs.algs4.In;
  * @author cheng
  *         2018/1/15 16:48
  */
-public class Example {
+public class Template {
     public static void sort(Comparable[] a) {
 
     }

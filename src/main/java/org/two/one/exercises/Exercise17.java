@@ -2,7 +2,7 @@ package org.two.one.exercises;
 
 import edu.princeton.cs.algs4.StdDraw;
 import edu.princeton.cs.algs4.StdRandom;
-import org.two.one.learn.Example;
+import org.two.one.learn.Template;
 
 /**
  * 2.1.17 动画。修改插入排序和选择排序的代码，使之将数组内容绘制成正文中所示的棒状图。在每一
@@ -13,7 +13,7 @@ import org.two.one.learn.Example;
  * @author cheng
  *         2018/1/18 14:37
  */
-public class Exercise17 extends Example {
+public class Exercise17 extends Template {
     public static void sort(Comparable[] a) {
         int n = a.length;
         for (int i = 0; i < n; i++) {

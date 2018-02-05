@@ -1,8 +1,8 @@
 package org.two.two.exercises;
 
 import edu.princeton.cs.algs4.StdRandom;
-import org.two.one.learn.Example;
 import org.two.one.learn.Insertion;
+import org.two.one.learn.Template;
 
 /**
  * 2.2.9  在库函数中使用aux[]这样的静态数组是不妥当的，因为可能会有多个程序同时使用这个类。
@@ -15,7 +15,7 @@ import org.two.one.learn.Insertion;
  * @author cheng
  *         2018/1/18 18:00
  */
-public class Exercise9 extends Example {
+public class Exercise9 extends Template {
     public static void sort(Comparable[] a) {
         Comparable[] aux = a.clone();
         sort(a, aux, 0, a.length - 1, true);

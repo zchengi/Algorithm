@@ -1,7 +1,7 @@
 package org.two.two.exercises;
 
 import edu.princeton.cs.algs4.StdDraw;
-import org.two.one.learn.Example;
+import org.two.one.learn.Template;
 
 /**
  * 2.2.8 假设将算法2.4修改为：只要a[mid] <= a[mid+1]就不用调用merge()方法，
@@ -12,7 +12,7 @@ import org.two.one.learn.Example;
  * @author cheng
  *         2018/1/18 17:29
  */
-public class Exercise8 extends Example {
+public class Exercise8 extends Template {
 
     /**
      * 访问数组的次数

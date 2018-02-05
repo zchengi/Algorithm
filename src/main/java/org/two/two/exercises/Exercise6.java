@@ -2,7 +2,7 @@ package org.two.two.exercises;
 
 import edu.princeton.cs.algs4.StdDraw;
 import edu.princeton.cs.algs4.StdRandom;
-import org.two.one.learn.Example;
+import org.two.one.learn.Template;
 
 /**
  * 2.2.6 编写一个程序来计算自顶向下和自底向上的归并排序访问数组的准确次数。
@@ -11,7 +11,7 @@ import org.two.one.learn.Example;
  * @author cheng
  *         2018/1/17 19:34
  */
-public class Exercise6 extends Example {
+public class Exercise6 extends Template {
 
     /**
      * 访问数组的次数
