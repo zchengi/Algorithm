@@ -73,7 +73,7 @@ public class MaxHeap<Item extends Comparable> {
         data[1] = data[count--];
 
         //避免对象游离
-        data[count+1] = null;
+        data[count + 1] = null;
 
         shiftDown(1);
         return max;
