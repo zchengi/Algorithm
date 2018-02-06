@@ -895,7 +895,7 @@ public class ArrayGenerator {
     public static void print(int[] a) {
         if (a == null || a.length == 0) return;
         StdOut.println();
-        StdOut.print("索引： ");
+        StdOut.print("索引：");
         for (int i = 0; i < a.length; i++)
             StdOut.printf("%-4d", i);
         StdOut.print("\n数组：");
