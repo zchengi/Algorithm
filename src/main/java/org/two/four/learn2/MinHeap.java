@@ -13,7 +13,6 @@ public class MinHeap<Item extends Comparable> {
 
     private int count;
 
-
     public MinHeap() {
         this(10);
     }

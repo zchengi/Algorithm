@@ -17,7 +17,7 @@ public class Exercise25 {
         for (int i = 0; i < n; i++) {
             int t = a[i];
             int j;
-            for ( j = i-1; j >= 0 && t < a[j]; j--) {
+            for (j = i - 1; j >= 0 && t < a[j]; j--) {
                 a[j + 1] = a[j];
             }
             a[j + 1] = t;
@@ -42,7 +42,7 @@ public class Exercise25 {
         int[] array = ArrayGenerator.ints(1, 100000);
         int[] copy = ArrayGenerator.copy(array);
 
-        System.out.println("交换： "+ insertion_A(copy));
-        System.out.println("不交换： "+ insertion_B(array));
+        System.out.println("不交换： "+ insertion_A(copy));
+        System.out.println("交换： "+ insertion_B(array));
     }
 }
