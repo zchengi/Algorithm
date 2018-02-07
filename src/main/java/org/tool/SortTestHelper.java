@@ -96,7 +96,7 @@ public class SortTestHelper {
     }
 
     /**
-     * 判断arr数组是否语序
+     * 检测数组是否有序
      */
     @SuppressWarnings("unchecked")
     public static boolean isSorted(Comparable[] arr) {
@@ -108,6 +108,17 @@ public class SortTestHelper {
         }
         return true;
     }
+
+    /**
+     * 检测以索引排序的数组是否有序
+     */
+    public static boolean isSortedByIndex(Comparable[] arr, int[] indexes) {
+        for (int i = 1; i < indexes.length; i++) {
+            if (arr[indexes[i]].compareTo(arr[indexes[i - 1]]) < 0) return false;
+        }
+        return true;
+    }
+
 
     /**
      * 测试sortClassName所对应的排序算法排序arr数组得到结果的正确性和算法运行时间
