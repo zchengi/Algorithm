@@ -10,8 +10,27 @@ import org.tool.SortTestHelper;
  */
 public class Bubble {
 
+    /**
+     * 优化版冒泡排序
+     * 将每次交换更改为赋值，和一次交换。
+     */
     public static void sort(Comparable[] arr) {
+        int n = arr.length;
+        while (n > 0) {
+            Comparable temp = arr[0];
+            int maxIndex = 0;
+            for (int i = 1; i < n; i++) {
+                if (temp.compareTo(arr[i]) < 0) {
+                    temp = arr[i];
+                    maxIndex = i;
+                }
+            }
+            arr[maxIndex] = arr[--n];
+            arr[n] = temp;
+        }
+    }
 
+    public static void sort2(Comparable[] arr) {
         int n = arr.length;
         boolean swapped;
 
@@ -36,9 +55,10 @@ public class Bubble {
     }
 
     public static void main(String[] args) {
+        int n = 10000;
+        Integer[] arr = SortTestHelper.generateRandomArray(n, 1, n);
 
-        Integer[] arr = SortTestHelper.generateRandomArray(10, 1, 100);
-        Bubble.sort(arr);
-        SortTestHelper.printArray(arr);
+        SortTestHelper.testSort("org.two.one.learn.Bubble", arr);
+        System.out.println(SortTestHelper.isSorted(arr));
     }
 }
