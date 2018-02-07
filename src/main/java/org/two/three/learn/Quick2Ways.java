@@ -55,7 +55,8 @@ public class Quick2Ways {
             // 对于上面两个边界的设定 答案参考 http://coding.imooc.com/learn/questiondetail/4920.html
             // 不使用“=”是为了避免出现一方含有多个等于v的元素，这样做可以使两颗子树较平衡，防止一棵树过大，一颗过小。
 
-            if (i > j) break;
+            // 此处 i >= j 和 i = j 对于排序的影响不大，都可以。
+            if (i >= j) break;
             swap(arr, i++, j--);
         }
         // 当前j处于小于arr[lo]的右半边的最后一个元素
@@ -76,5 +77,6 @@ public class Quick2Ways {
         int n = 1000000;
         Integer[] arr = SortTestHelper.generateRandomArray(n, 0, 100000);
         SortTestHelper.testSort("org.two.three.learn.Quick2Ways", arr);
+        System.out.println(SortTestHelper.isSorted(arr));
     }
 }
