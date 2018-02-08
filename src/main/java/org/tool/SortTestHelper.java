@@ -110,11 +110,13 @@ public class SortTestHelper {
     }
 
     /**
-     * 检测以索引排序的数组是否有序
+     * 排序算法稳定性检测
      */
     public static boolean isSortedByIndex(Comparable[] arr, int[] indexes) {
         for (int i = 1; i < indexes.length; i++) {
-            if (arr[indexes[i]].compareTo(arr[indexes[i - 1]]) < 0) return false;
+            if (arr[indexes[i]].compareTo(arr[indexes[i - 1]]) == 0) {
+                if (indexes[i] < indexes[i - 1]) return false;
+            }
         }
         return true;
     }
