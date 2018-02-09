@@ -242,7 +242,7 @@ public class IndexMinHeap<Item extends Comparable> {
     }
 
     public static void main(String[] args) {
-        int n = 50;
+        int n = 10;
         IndexMinHeap<Integer> indexMinHeap = new IndexMinHeap<>();
         for (int i = 0; i < n; i++) {
             indexMinHeap.insert(i, (int) (Math.random() * n));

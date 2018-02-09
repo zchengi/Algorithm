@@ -80,6 +80,14 @@ public class MaxHeap<Item extends Comparable> {
     }
 
     /**
+     * 打印最大值
+     */
+    public Item getMax() {
+        assert count > 0;
+        return data[1];
+    }
+
+    /**
      * 上移排序
      */
     private void shiftUp(int k) {
