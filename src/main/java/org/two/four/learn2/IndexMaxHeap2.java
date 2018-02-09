@@ -115,16 +115,28 @@ public class IndexMaxHeap2<Item extends Comparable> {
     /**
      * 获取最大索引堆中索引为i的元素
      */
-    Item getItem(int i) {
+    public Item getItem(int i) {
         assert contain(i);
         return data[i + 1];
+    }
+
+    /**
+     * 删除最大索引堆中索引为i的元素
+     */
+    public void delete(int i) {
+        int index = reverse[i];
+        swapIndexes(index, count--);
+        shiftUp(index);
+        shiftDown(index);
+        data[i] = null;
+        reverse[i] = 0;
     }
 
     /**
      * 将最大索引堆中索引为i的元素修改为newItem
      * O(logn)
      */
-    void change(int i, Item newItem) {
+    public void change(int i, Item newItem) {
         assert contain(i);
 
         data[++i] = newItem;

@@ -100,7 +100,7 @@ public class IndexMaxHeap<Item extends Comparable> {
     /**
      * 获取最大索引堆中索引为i的元素
      */
-    Item getItem(int i) {
+    public Item getItem(int i) {
         assert i + 1 >= 1 && i + 1 <= capacity;
         return data[i + 1];
     }
@@ -109,7 +109,7 @@ public class IndexMaxHeap<Item extends Comparable> {
      * 将最大索引堆中索引为i的元素修改为newItem
      * o(n)
      */
-    void change(int i, Item newItem) {
+    public void change(int i, Item newItem) {
         data[++i] = newItem;
 
         // 为了维持最大堆的性质
