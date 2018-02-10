@@ -6,6 +6,7 @@ import java.util.NoSuchElementException;
 
 /**
  * 算法3.2 二分查找（基于有序数组）
+ * 基于二分查找的有序符号表(Symbol table)
  *
  * @author cheng
  *         2018/2/5 14:54
@@ -15,7 +16,7 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
     private static final int INIT_CAPACITY = 2;
     private Key[] keys;
     private Value[] values;
-    private int count = 0;
+    private int count;
     private int capacity;
 
     public BinarySearchST() {
@@ -26,6 +27,7 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
         this.capacity = capacity;
         keys = (Key[]) new Comparable[capacity];
         values = (Value[]) new Object[capacity];
+        count = 0;
     }
 
     public void put(Key key, Value value) {
@@ -35,7 +37,7 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
             return;
         }
 
-        // 查找键，找到则更新，否则创建新的元素
+        // 查找键，找到则更新，否则插入新的元素
         int i = rank(key);
         if (i < count && keys[i].compareTo(key) == 0) {
             values[i] = value;
@@ -44,6 +46,7 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
 
         if (count == capacity) resize(2 * capacity);
 
+        // 插入新键，插入位置为i，所有大于i的元素向后移动一位
         for (int j = count; j > i; j--) {
             keys[j] = keys[j - 1];
             values[j] = values[j - 1];
@@ -159,7 +162,7 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
         capacity = newCapacity;
     }
 
-    private boolean contains(Key key) {
+    public boolean contains(Key key) {
         if (key == null) throw new IllegalArgumentException("key must be not null!");
         return get(key) != null;
     }
@@ -228,8 +231,8 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
         BinarySearchST<String, Integer> st = new BinarySearchST<>();
 
         // b c d e f
-        for (int i = 0; i < 5; i++) {
-            st.put(String.valueOf((char) ('b' + i)), i);
+        for (int i = 0; i < 20; i++) {
+            st.put(String.valueOf((char) ('b' + (int) (Math.random() * 20))), i);
         }
 
         st.delete("b");

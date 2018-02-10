@@ -3,7 +3,7 @@ package org.three.one.learn;
 import org.example.Queue;
 
 /**
- * 算法3.1 顺序查找（基于无需链表）
+ * 算法3.1 顺序查找（基于无序链表）
  *
  * @author cheng
  *         2018/2/5 13:28

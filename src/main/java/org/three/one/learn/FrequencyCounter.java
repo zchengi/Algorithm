@@ -1,7 +1,6 @@
 package org.three.one.learn;
 
 import edu.princeton.cs.algs4.In;
-import edu.princeton.cs.algs4.ST;
 
 /**
  * 3.1.3.2 性能测试用例
@@ -14,7 +13,7 @@ import edu.princeton.cs.algs4.ST;
  */
 public class FrequencyCounter {
     public static void showMaxWord(String name, int minLength) {
-        ST<String, Integer> st = new ST<>();
+        BinarySearchST<String, Integer> st = new BinarySearchST<>();
         In in = new In("src/main/java/org/three/one/text/"+name);
         in.isEmpty();
         while (!in.isEmpty()) {
