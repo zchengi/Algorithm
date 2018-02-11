@@ -76,7 +76,7 @@ public class SequentialSearchST<Key, Value> {
     }
 
     /**
-     * 删除给定的键的结点，返回相关联的值
+     * 删除给定的键的结点
      */
     public void delete(Key key) {
         if (key == null) throw new IllegalArgumentException("key mush not be null!");
@@ -85,7 +85,7 @@ public class SequentialSearchST<Key, Value> {
     }
 
     /**
-     * 删除链表从给定结点开始的一个指定键的结点，返回该结点
+     * 删除链表从给定结点开始的一个指定键的结点，返回删除后的符号表
      * 警告：如果符号表很大，函数调用堆栈太大
      */
     public Node delete(Node x, Key key) {
