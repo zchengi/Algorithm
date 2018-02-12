@@ -12,7 +12,7 @@ import edu.princeton.cs.algs4.StdIn;
 public class BehavioralTestCases {
     public static void main(String[] args) {
         ST<String, Integer> st = new ST<>();
-        // S E A R C H E HX A M P L E
+        // S E A R C H E H X A M P L E
         for (int i = 0; !StdIn.isEmpty(); i++) {
             st.put(StdIn.readString(), i);
         }

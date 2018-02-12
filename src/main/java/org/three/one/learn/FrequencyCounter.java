@@ -14,7 +14,7 @@ import edu.princeton.cs.algs4.In;
 public class FrequencyCounter {
     public static void showMaxWord(String name, int minLength) {
         BinarySearchST<String, Integer> st = new BinarySearchST<>();
-        In in = new In("src/main/java/org/three/one/text/"+name);
+        In in = new In("src/main/java/org/three/one/text/" + name);
 
         while (!in.isEmpty()) {
             // 构造符号表并统计频率
