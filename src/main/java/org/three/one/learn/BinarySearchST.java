@@ -114,7 +114,9 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
             else if (temp < 0) hi = mid - 1;
             else return mid;
         }
-        // 如果 key 不在keys数组中 那么返回值只能是小于 key 的最大元素的索引,或者大于 key 的最小索引
+        // 没有找到key值的情况（key的位置只能为lo），举例如下：
+        // (1) 在[2,4] 中查找 3 ，lo = mid = 2，hi = 4，这时候key大于mid，所以lo = mid + 1 = 4 = hi，即返回索引4(lo)；
+        // (2) 在[2,3] 中查找 1 , lo = mid = 2；hi = 3，这时候key小于mid，所以hi = mid - 1 = 2 = lo，即返回索引2(lo)；
         return lo;
     }
 
