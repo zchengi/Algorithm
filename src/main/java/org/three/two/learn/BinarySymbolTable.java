@@ -67,6 +67,10 @@ public class BinarySymbolTable<Key extends Comparable<Key>, Value> {
         return x;
     }
 
+    public Value get(Key key) {
+        return get(root, key);
+    }
+
     private Value get(Node x, Key key) {
         if (key == null) throw new IllegalArgumentException("Called get() with a null key!");
         // 在以x为根节点的子树中查找并返回Key所对应的值；
@@ -77,10 +81,6 @@ public class BinarySymbolTable<Key extends Comparable<Key>, Value> {
         if (cmp < 0) return get(x.left, key);
         else if (cmp > 0) return get(x.right, key);
         else return x.value;
-    }
-
-    public Value get(Key key) {
-        return get(root, key);
     }
 
     public void delete(Key key) {
