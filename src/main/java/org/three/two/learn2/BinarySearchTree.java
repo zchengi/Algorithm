@@ -55,6 +55,7 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
         }
 
         int cmp = node.key.compareTo(key);
+
         if (cmp > 0) node.left = insert(node.left, key, value);
         else if (cmp < 0) node.right = insert(node.right, key, value);
         else node.value = value;
