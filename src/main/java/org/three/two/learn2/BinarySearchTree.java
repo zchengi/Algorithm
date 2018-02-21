@@ -1,5 +1,7 @@
 package org.three.two.learn2;
 
+import java.util.LinkedList;
+
 /**
  * 二分搜索树
  *
@@ -63,6 +65,40 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
         return node;
     }
 
+    public void removeMin() {
+        if (root != null) {
+            root = removeMin(root);
+        }
+    }
+
+    private Node removeMin(Node node) {
+        if (node.left == null) {
+            Node rightNode = node.right;
+            node.right = null;
+            count--;
+            return rightNode;
+        }
+        node.left = removeMin(node.left);
+        return node;
+    }
+
+    public void removeMax() {
+        if (root != null) {
+            root = removeMax(root);
+        }
+    }
+
+    private Node removeMax(Node node) {
+        if (node.right == null) {
+            Node rightNode = node.left;
+            node.left = null;
+            count--;
+            return rightNode;
+        }
+        node.right = removeMax(node.right);
+        return node;
+    }
+
     public boolean contains(Key key) {
         if (key == null) throw new IllegalArgumentException("Called contains() with a null key!");
 
@@ -83,16 +119,111 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
         else return node.value;
     }
 
+    public Key minimum() {
+        assert count != 0;
+
+        return minimum(root).key;
+    }
+
+    private Node minimum(Node node) {
+        if (node.left == null) {
+            return node;
+        }
+        return minimum(node.left);
+    }
+
+    public Key maximum() {
+        assert count != 0;
+
+        return maximum(root).key;
+    }
+
+    private Node maximum(Node node) {
+        if (node.right == null) {
+            return node;
+        }
+        return maximum(node.right);
+    }
+
+    /**
+     * 层序遍历
+     */
+    public void levelOrder() {
+        // 使用LinkedList作为队列
+        LinkedList<Node> list = new LinkedList<>();
+        list.add(root);
+
+        while (!list.isEmpty()) {
+            Node node = list.remove();
+            System.out.println(node.key);
+
+            if (node.left != null) {
+                list.add(node.left);
+            }
+            if (node.right != null) {
+                list.add(node.right);
+            }
+        }
+    }
+
+    /**
+     * 前序遍历
+     */
+    public void preOrder() {
+        preOrder(root);
+    }
+
+    private void preOrder(Node node) {
+        if (node != null) {
+            System.out.println(node.key);
+            preOrder(node.left);
+            preOrder(node.right);
+        }
+    }
+
+    /**
+     * 中序遍历
+     */
+    public void inOrder() {
+        inOrder(root);
+    }
+
+    private void inOrder(Node node) {
+        if (node != null) {
+            inOrder(node.left);
+            System.out.println(node.key);
+            inOrder(node.right);
+        }
+    }
+
+    /**
+     * 后续遍历
+     */
+    public void postOrder() {
+        postOrder(root);
+    }
+
+    private void postOrder(Node node) {
+        if (node != null) {
+            postOrder(node.left);
+            postOrder(node.right);
+            System.out.println(node.key);
+        }
+    }
+
     public static void main(String[] args) {
         BinarySearchTree<Integer, Integer> bst = new BinarySearchTree<>();
+        bst.insert(3, 3);
         bst.insert(1, 1);
         bst.insert(2, 2);
-        bst.insert(3, 3);
         bst.insert(4, 4);
         bst.insert(5, 5);
         bst.insert(3, 33);
 
         System.out.println(bst.contains(3));
         System.out.println(bst.search(3));
+
+        bst.removeMin();
+        bst.removeMax();
     }
 }
