@@ -11,7 +11,7 @@ import java.util.Vector;
  * @author cheng
  *         2018/2/19 13:11
  */
-public class SearchCompare4 {
+public class SearchCompare1 {
     public static void main(String[] args) {
 
         // 使用圣经作为测试用例
