@@ -23,6 +23,13 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
             this.value = value;
             this.left = this.right = null;
         }
+
+        public Node(Node node) {
+            this.key = node.key;
+            this.value = node.value;
+            this.left = node.left;
+            this.right = node.right;
+        }
     }
 
     public BinarySearchTree() {
@@ -41,7 +48,7 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
     public void insert(Key key, Value value) {
         if (key == null) throw new IllegalArgumentException("called insert() with a null key!");
         if (value == null) {
-            // TODO
+            remove(key);
         }
         root = insert(root, key, value);
     }
@@ -63,6 +70,61 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
         else node.value = value;
 
         return node;
+    }
+
+    public void remove(Key key) {
+        root = remove(root, key);
+    }
+
+    /**
+     * 删除掉以node为根的二分搜索树中的键值为key的结点，递归算法
+     * 返回删除结点后的新的二分搜素树的根
+     */
+    private Node remove(Node node, Key key) {
+        if (node == null) return null;
+
+        int cmp = node.key.compareTo(key);
+
+        if (cmp > 0) {
+            node.left = remove(node.left, key);
+            return node;
+        } else if (cmp < 0) {
+            node.right = remove(node.right, key);
+            return node;
+        } else {
+            // key == node.key
+
+            // 待删除结点左子树为空的情况
+            if (node.left == null) {
+                Node rightNode = node.right;
+                node.right = null;
+                count--;
+                return rightNode;
+            }
+
+            // 待删除结点右子树为空的情况
+            if (node.right == null) {
+                Node leftNode = node.left;
+                node.left = null;
+                count--;
+                return leftNode;
+            }
+
+            // 待删除结点左右子树不为空的情况
+
+            // 找到比待删除结点大的最小结点，即待删除结点右子树的最小结点
+            // 用这个结点顶替待删除结点的位置
+            Node successor = new Node(minimum(node.right));
+            count++;
+
+            successor.right = removeMin(node.right);
+            successor.left = node.left;
+
+            node.left = node.right = null;
+            count--;
+
+            return successor;
+        }
     }
 
     public void removeMin() {
@@ -225,5 +287,7 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
 
         bst.removeMin();
         bst.removeMax();
+        bst.remove(3);
+
     }
 }
