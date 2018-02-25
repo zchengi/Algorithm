@@ -7,11 +7,11 @@ package org.unionfind;
  *         2018/2/24 14:31
  */
 public class UnionFindTestHelper {
+
     /**
-     * 测试第一版本的并查集，测试元素个数为n
+     * 测试并查集，测试元素个数为n
      */
-    public static void testUF1(int n) {
-        UnionFind1 uf = new UnionFind1(n);
+    public static void testUF(UF uf, int n) {
 
         long startTime = System.currentTimeMillis();
 
@@ -32,6 +32,33 @@ public class UnionFindTestHelper {
         long endTime = System.currentTimeMillis();
 
         // 打印输出对这个2n个操作的耗时
-        System.out.println("UF1, " + 2 * n + " ops, " + (endTime - startTime) + "ms");
+        System.out.println(uf.getClass().getSimpleName() + ", "
+                + 2 * n + " ops, " + (endTime - startTime) + "ms");
+    }
+
+    /**
+     * 使用相同的测试数据测试UF的执行效率
+     */
+    public static void testUF2(UF uf, Pair<Integer, Integer>[] unionTest, Pair<Integer, Integer>[] connectTest) {
+
+        long startTime = System.currentTimeMillis();
+
+        for (int i = 0; i < unionTest.length; i++) {
+            int a = unionTest[i].a();
+            int b = unionTest[i].b();
+            uf.unionElements(a, b);
+        }
+
+        for (int i = 0; i < connectTest.length; i++) {
+            int a = connectTest[i].a();
+            int b = connectTest[i].b();
+            uf.isConnected(a, b);
+        }
+
+        long endTime = System.currentTimeMillis();
+
+        System.out.println(uf.getClass().getSimpleName() + " with " + unionTest.length + " unionElements ops, "
+                + connectTest.length + " isConnected ops, "
+                + (endTime - startTime) + "ms");
     }
 }
