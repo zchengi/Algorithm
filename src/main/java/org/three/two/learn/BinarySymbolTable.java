@@ -140,6 +140,10 @@ public class BinarySymbolTable<Key extends Comparable<Key>, Value> {
         return x;
     }
 
+    /**
+     * 返回排名为k的结点的 key 值
+     * k 从 0 开始索引
+     */
     public Key select(int k) {
         if (k < 0 || k >= size()) {
             throw new NoSuchElementException("Called select with invalid argument: " + k + "!");
@@ -165,6 +169,9 @@ public class BinarySymbolTable<Key extends Comparable<Key>, Value> {
         return rank(key, root);
     }
 
+    /**
+     * 返回以x为根结点的子树中小于x.key的键的数量
+     */
     private int rank(Key key, Node x) {
         if (x == null) return 0;
 
