@@ -6,7 +6,7 @@ package org.three.two.learn2;
  * @author cheng
  *         2018/2/18 14:04
  */
-public class BinarySearchTreeLoop<Key extends Comparable<Key>, Value> {
+public class BinarySearchTreeIteration<Key extends Comparable<Key>, Value> {
 
     private Node root;
     private int count;
@@ -23,7 +23,7 @@ public class BinarySearchTreeLoop<Key extends Comparable<Key>, Value> {
         }
     }
 
-    public BinarySearchTreeLoop() {
+    public BinarySearchTreeIteration() {
         root = null;
         count = 0;
     }
@@ -73,14 +73,14 @@ public class BinarySearchTreeLoop<Key extends Comparable<Key>, Value> {
             }
         }
 
-        // 如果存在要插入的结点，父节点为空
+        // 如果存在要插入的结点，父结点为空
         if (parent == null) return;
 
         if (parent.key.compareTo(key) < 0) {
-            // 如果要父节点key小于要插入结点的key，则插入到父节点的右子树
+            // 如果要父结点key小于要插入结点的key，则插入到父结点的右子树
             parent.right = newNode;
         } else {
-            // 如果要父节点key大于要插入结点的key，则插入到父节点的左子树
+            // 如果要父结点key大于要插入结点的key，则插入到父结点的左子树
             parent.left = newNode;
         }
         count++;
@@ -106,7 +106,7 @@ public class BinarySearchTreeLoop<Key extends Comparable<Key>, Value> {
     }
 
     public static void main(String[] args) {
-        BinarySearchTreeLoop<Integer, Integer> bst = new BinarySearchTreeLoop<>();
+        BinarySearchTreeIteration<Integer, Integer> bst = new BinarySearchTreeIteration<>();
         bst.insert(3, 3);
         bst.insert(1, 1);
         bst.insert(5, 5);
