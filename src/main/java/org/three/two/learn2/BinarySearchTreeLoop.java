@@ -42,7 +42,7 @@ public class BinarySearchTreeLoop<Key extends Comparable<Key>, Value> {
     public void insert(Key key, Value value) {
         if (key == null) throw new IllegalArgumentException("Called insert() with a null key!");
         if (value == null) {
-            // TODO
+            remove(key);
             return;
         }
 
@@ -60,21 +60,49 @@ public class BinarySearchTreeLoop<Key extends Comparable<Key>, Value> {
             parent = current;
             int cmp = current.key.compareTo(key);
 
+            // 当前结点大于要插入的结点
             if (cmp > 0) current = current.left;
             else if (cmp < 0) {
+                // 当前结点小于要插入的结点
                 current = current.right;
             } else {
+                // 当前结点就是要插入的结点
                 current.value = value;
                 parent = null;
                 break;
             }
         }
 
+        // 如果存在要插入的结点，父节点为空
         if (parent == null) return;
 
-        if (parent.key.compareTo(key) < 0) parent.right = newNode;
-        else parent.left = newNode;
+        if (parent.key.compareTo(key) < 0) {
+            // 如果要父节点key小于要插入结点的key，则插入到父节点的右子树
+            parent.right = newNode;
+        } else {
+            // 如果要父节点key大于要插入结点的key，则插入到父节点的左子树
+            parent.left = newNode;
+        }
         count++;
+    }
+
+    public void remove(Key key) {
+        if (root == null) return;
+        // TODO
+    }
+
+    public void removeMin() {
+        // TODO
+        Node current = root;
+        Node parent;
+        while (current != null) {
+            if (current.left == null) {
+                Node rightNode = current.right;
+                current.right = null;
+                count--;
+
+            }
+        }
     }
 
     public static void main(String[] args) {

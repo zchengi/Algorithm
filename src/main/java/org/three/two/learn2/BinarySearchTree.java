@@ -46,10 +46,12 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
     }
 
     public void insert(Key key, Value value) {
-        if (key == null) throw new IllegalArgumentException("called insert() with a null key!");
+        if (key == null) throw new IllegalArgumentException("Called insert() with a null key!");
         if (value == null) {
             remove(key);
+            return;
         }
+
         root = insert(root, key, value);
     }
 
@@ -181,6 +183,61 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
         else return node.value;
     }
 
+    public Key floor(Key key) {
+        if (count == 0 || key.compareTo(minimum()) < 0) return null;
+
+        Node floorNode = floor(root, key);
+        return floorNode.key;
+    }
+
+    private Node floor(Node node, Key key) {
+        if (node == null) return null;
+
+        int cmp = node.key.compareTo(key);
+
+        // 如果node的key值和要寻找的key值相等
+        // 则node本身就是key的floor结点
+        if (cmp == 0) return node;
+
+        // 如果node的key值比要寻找的key值大
+        // 则要寻找的key的floor结点一定在node的左子树中
+        if (cmp > 0) return floor(node.left, key);
+
+        // 如果node的key值比要寻找的key值小
+        // 则node有可能是key的floor结点，也有可能不是（存在比node.key大但是小于key的其余结点）
+        // 需要尝试向node的左子树寻找一下
+        Node tempNode = floor(node.right, key);
+        if (tempNode != null) {
+            return tempNode;
+        }
+        return node;
+    }
+
+    public Key ceil(Key key) {
+        if (count == 0 || key.compareTo(maximum()) > 0) return null;
+
+        Node ceilNode = ceil(root, key);
+        return ceilNode.key;
+    }
+
+    private Node ceil(Node node, Key key) {
+        if (node == null) return null;
+
+        int cmp = node.key.compareTo(key);
+
+        if (cmp == 0) return node;
+
+        if (cmp < 0) return ceil(node.right, key);
+
+        Node tempNode = ceil(node.left, key);
+        if (tempNode != null) {
+            return tempNode;
+        }
+
+        return node;
+
+    }
+
     public Key minimum() {
         assert count != 0;
 
@@ -288,6 +345,7 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
         bst.removeMin();
         bst.removeMax();
         bst.remove(3);
-
+        System.out.println(bst.ceil(4));
+        System.out.println(bst.floor(2));
     }
 }
