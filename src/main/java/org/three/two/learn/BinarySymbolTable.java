@@ -2,7 +2,9 @@ package org.three.two.learn;
 
 import org.example.Queue;
 
+import java.util.HashSet;
 import java.util.NoSuchElementException;
+import java.util.Set;
 
 /**
  * 算法3.3 基于二叉查找树的符号表
@@ -328,22 +330,26 @@ public class BinarySymbolTable<Key extends Comparable<Key>, Value> {
     }
 
     private boolean check() {
-        // 不是对称的顺序
+        // 有序性检查 判断所有结点是否都在 min 和 max 之间
         if (!isBST()) System.out.println("Not is symmetric order!");
+        // 二叉树检查 判断子树个结点总数 + 1与 N 是否相等
         if (!isSizeConsistent()) System.out.println("Subtree counts not consistent!");
+        // 等值键检查 判断是否有重复的键
+        if (!hasNotDuplicates()) System.out.println("BST has duplicates key!");
+        // 选择/排名检查
         if (!isRankConsistent()) System.out.println("Ranks not consistent!");
 
         return isBST() && isSizeConsistent() && isRankConsistent();
     }
 
     private boolean isBST() {
-        return isBST(root, null, null);
+        return isBST(root, min(), max());
     }
 
     private boolean isBST(Node x, Key min, Key max) {
         if (x == null) return true;
-        if (min != null && x.key.compareTo(min) <= 0) return false;
-        if (max != null && x.key.compareTo(max) >= 0) return false;
+        if (min != null && x.key.compareTo(min) < 0) return false;
+        if (max != null && x.key.compareTo(max) > 0) return false;
 
         return isBST(x.left, min, x.key) && isBST(x.right, x.key, max);
     }
@@ -357,6 +363,25 @@ public class BinarySymbolTable<Key extends Comparable<Key>, Value> {
         if (x.size != 1 + size(x.left) + size(x.right)) return false;
 
         return isSizeConsistent(x.left) && isSizeConsistent(x.right);
+    }
+
+    private boolean hasNotDuplicates() {
+        return hasNotDuplicates(root);
+    }
+
+    private boolean hasNotDuplicates(Node node) {
+
+        Set<Key> keys = new HashSet<>();
+        collectNodes(node, keys);
+        return keys.size() == size(node);
+    }
+
+    private void collectNodes(Node node, Set<Key> keys) {
+        if (node == null) return;
+
+        collectNodes(node.left, keys);
+        keys.add(node.key);
+        collectNodes(node.right, keys);
     }
 
     private boolean isRankConsistent() {
@@ -388,5 +413,7 @@ public class BinarySymbolTable<Key extends Comparable<Key>, Value> {
         for (Integer i : bst.keys()) {
             System.out.println(i + " " + bst.get(i));
         }
+
+        System.out.println(bst.check());
     }
 }
