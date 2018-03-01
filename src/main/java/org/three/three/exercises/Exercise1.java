@@ -9,7 +9,7 @@ package org.three.three.exercises;
 public class Exercise1 {
     /*
      *
-     * 见 FlowChart 中 3.2.1.jpg
+     * 见 FlowChart 中 3.3.1.jpg
      *
      */
 }
