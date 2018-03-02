@@ -1,7 +1,7 @@
 package org.three.three.exercises;
 
 /**
- * 3.3.3 使用什么顺序插入键 S E A C H X M 能够得到一颗高度为1的 2-3 树？
+ * 3.3.3 使用什么顺序插入键 S E A C H X M 能够得到一棵高度为1的 2-3 树？
  *
  * @author cheng
  *         2018/3/1 12:43

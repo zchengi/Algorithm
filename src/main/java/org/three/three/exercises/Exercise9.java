@@ -7,7 +7,6 @@ package org.three.three.exercises;
  *         2018/3/1 19:26
  */
 public class Exercise9 {
-
     /*
      *
      * i.    不是红黑树，把红色摊平将其视作2-3树就可以看出
