@@ -2,7 +2,7 @@ package org.three.two.exercises;
 
 /**
  * 3.2.27 内存使用。基于1.4节的假设，对于N对键值比较二叉查找树和BinarySearchST以及SequentialSearchST的内存使用情况。
- * 用图精确描述一颗以String为键、Integer为值的二叉查找树（比如FrequencyCounter构造的那种）的内存使用情况，
+ * 用图精确描述一棵以String为键、Integer为值的二叉查找树（比如FrequencyCounter构造的那种）的内存使用情况，
  * 然后估计FrequencyCounter在使用二叉查找树处理《双城记》时树的内存使用情况（精确到字节）。
  *
  * @author cheng
