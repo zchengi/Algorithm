@@ -1,7 +1,7 @@
 package org.three.three.exercises;
 
 /**
- * 3.3.4 s证明含有N个键的 2-3 树的高度在 ~log3N 即 0.63lgN（树完全由3-结点组成）
+ * 3.3.4 证明含有N个键的 2-3 树的高度在 ~log3N 即 0.63lgN（树完全由3-结点组成）
  * 和 ~lgN （树完全由2-结点组成）之间。
  *
  * @author cheng
