@@ -1,5 +1,9 @@
 package org.three.three.learn;
 
+import org.example.Queue;
+
+import java.util.NoSuchElementException;
+
 /**
  * 红黑二叉查找树（红黑树）
  *
@@ -69,6 +73,30 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
         return h;
     }
 
+    /**
+     * 删除最小键
+     */
+    public void deleteMin() {
+        if (isEmpty()) throw new NoSuchElementException("BST underflow!");
+
+        // 如果两个子孩子都为黑色，则将root设为红色
+        if (!isRed(root.left) && !isRed(root.right)) root.color = RED;
+
+        root = deleteMin(root);
+        if (!isEmpty()) root.color = BlACK;
+        // assert check()
+    }
+
+    private Node deleteMin(Node node) {
+        if (node.left == null) return null;
+
+        if (!isRed(node.left) && !isRed(node.left.left)) {
+            node = moveRedLeft(node);
+        }
+
+        node.left = deleteMin(node.left);
+        return balance(node);
+    }
 
     /**
      * 判断结点 node 是否为红色
@@ -134,6 +162,54 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
         h.right.color = !h.right.color;
     }
 
+    /**
+     * 假设node是红色，node.left和node.left.left都是黑色，将node.left或其中一个孩子设为红色。
+     */
+    private Node moveRedLeft(Node node) {
+        // assert (node != null);
+        // assert isRed(node) && !isRed(node.left) && !isRed(node.left.left)
+
+        flipColors(node);
+        if (isRed(node.right.left)) {
+            node.right = rotateRight(node.right);
+            node = rotateLeft(node);
+            flipColors(node);
+        }
+
+        return node;
+    }
+
+    /**
+     * 假设node是红色，node.right和node.right.left都是黑色，将node.right或其中一个孩子变成红色。
+     */
+    private Node moveRedRight(Node node) {
+        // assert (node != null);
+        // assert isRed(node) && !isRed(node.left) && !isRed(node.left.left)
+
+        flipColors(node);
+        if (isRed(node.left.left)) {
+            node = rotateRight(node);
+            flipColors(node);
+        }
+
+        return node;
+    }
+
+    /**
+     * 恢复红黑树的平衡
+     */
+    private Node balance(Node node) {
+        // assert node != null;
+
+        if (isRed(node.right)) node = rotateLeft(node);
+        if (isRed(node.left) && isRed(node.left.left)) node = rotateRight(node);
+        if (isRed(node.left) && isRed(node.right)) flipColors(node);
+
+        node.size = 1 + size(node.left) + size(node.right);
+
+        return node;
+    }
+
     private int size() {
         return size(root);
     }
@@ -142,12 +218,66 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
         return node == null ? 0 : node.size;
     }
 
+    public boolean isEmpty() {
+        return root == null;
+    }
+
+    public Key min() {
+        if (isEmpty()) throw new NoSuchElementException("Called min() with empty Symbol table!");
+
+        return min(root).key;
+    }
+
+    private Node min(Node x) {
+        if (x.left == null) return x;
+        return min(x.left);
+    }
+
+    public Key max() {
+        if (isEmpty()) throw new NoSuchElementException("Called max() with empty Symbol table!");
+
+        return max(root).key;
+    }
+
+    private Node max(Node x) {
+        if (x.right == null) return x;
+        else return max(x.right);
+    }
+
+    public Iterable<Key> keys() {
+        return keys(min(), max());
+    }
+
+    public Iterable<Key> keys(Key lo, Key hi) {
+        if (lo == null) throw new IllegalArgumentException("First argument to keys() is null!");
+        if (hi == null) throw new IllegalArgumentException("Second argument to keys() is null!");
+
+        Queue<Key> queue = new Queue<>();
+        keys(root, queue, lo, hi);
+        return queue;
+    }
+
+    private void keys(Node x, Queue<Key> queue, Key lo, Key hi) {
+        if (x == null) return;
+
+        int cmpLo = lo.compareTo(x.key);
+        int cmpHi = hi.compareTo(x.key);
+
+        if (cmpLo < 0) keys(x.left, queue, lo, hi);
+        if (cmpLo <= 0 && cmpHi >= 0) queue.enqueue(x.key);
+        if (cmpHi > 0) keys(x.right, queue, lo, hi);
+    }
+
     public static void main(String[] args) {
         String[] words = {"S", "E", "A", "R", "C", "H", "X", "M", "P", "L"};
         RedBlackBST<String, Integer> bst = new RedBlackBST<>();
 
         for (int i = 0; i < words.length; i++) {
             bst.put(words[i], i);
+        }
+
+        for (String letter : bst.keys()) {
+            System.out.println(letter);
         }
     }
 }
