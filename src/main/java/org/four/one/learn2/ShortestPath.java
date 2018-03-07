@@ -1,40 +1,33 @@
 package org.four.one.learn2;
 
-import java.util.Stack;
+import org.example.Stack;
+
+import java.util.LinkedList;
 import java.util.Vector;
 
 /**
- * 获得两点间的一条路径
+ * 无权图的广度优先遍历和最短路径
  *
  * @author cheng
- *         2018/3/7 15:40
+ *         2018/3/7 16:15
  */
-public class Path {
+public class ShortestPath {
 
-    /**
-     * 图的引用
-     */
     private Graph G;
 
-    /**
-     * 起始点
-     */
     private int s;
 
-    /**
-     * 记录dfs的过程中结点是否被访问
-     */
     private boolean[] visited;
 
-    /**
-     * 记录路径，form[i]表示查找的路径上i的上一个结点
-     */
     private int[] from;
 
+    /**
+     * 记录路径中结点的次序，ord[i] 表示 i 结点在路径中的次序
+     */
+    private int[] ord;
 
-    public Path(Graph graph, int s) {
-
-        // 寻找图 graph 从 s 点 到其他点的路径
+    public ShortestPath(Graph graph, int s) {
+        // 寻找图 graph 从 s 点到其他点的路径
 
         if (s < 0 || s >= graph.V()) {
             throw new IllegalArgumentException("invalid argument: " + s + " !");
@@ -44,36 +37,34 @@ public class Path {
         G = graph;
         visited = new boolean[G.V()];
         from = new int[G.V()];
+        ord = new int[G.V()];
 
         for (int i = 0; i < G.V(); i++) {
             visited[i] = false;
             from[i] = -1;
+            ord[i] = -1;
         }
-
         this.s = s;
 
-        // 寻路算法
-        dfs(s);
-    }
+        // 无向图的最短路径算法，从 s 开始广度优先遍历整张图
+        LinkedList<Integer> q = new LinkedList<>();
 
-    /**
-     * 图的深度优先遍历
-     */
-    private void dfs(int v) {
-
-        visited[v] = true;
-
-        for (int i : G.adj(v)) {
-            if (!visited[i]) {
-                from[i] = v;
-                dfs(i);
+        q.push(s);
+        visited[s] = true;
+        ord[s] = 0;
+        while (!q.isEmpty()) {
+            int v = q.pop();
+            for (Integer i : G.adj(v)) {
+                if (!visited[i]) {
+                    q.push(i);
+                    visited[i] = true;
+                    from[i] = v;
+                    ord[i] = ord[v] + 1;
+                }
             }
         }
     }
 
-    /**
-     * 查询从 s 点到 w 点是否有路径
-     */
     public boolean hasPath(int w) {
 
         if (w < 0 || w >= G.V()) {
@@ -122,5 +113,17 @@ public class Path {
             if (i == vector.size() - 1) System.out.println();
             else System.out.print(" -> ");
         }
+    }
+
+    /**
+     * 查看从 s 点到达 w 点的最短路径长度
+     * 若从 s 到 w 不可达，返回-1
+     */
+    public int length(int w) {
+        if (w < 0 || w >= G.V()) {
+            throw new IllegalArgumentException("Called length() with invalid arguments: " + w + "!");
+        }
+
+        return ord[w];
     }
 }
