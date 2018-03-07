@@ -65,7 +65,7 @@ public class DenseGraph implements Graph {
      * 由于java使用引用机制，返回一个Vector不会带来额外的开销
      */
     public Iterable<Integer> adj(int v) {
-        if (v < 0 || v >= n) throw new IllegalArgumentException("Called addEdge() invalid argument:" + v + "!");
+        if (v < 0 || v >= n) throw new IllegalArgumentException("Called adj() invalid argument:" + v + "!");
 
         Vector<Integer> adjV = new Vector<>();
         for (int i = 0; i < n; i++) {
@@ -88,8 +88,8 @@ public class DenseGraph implements Graph {
      * 验证图中是否有从v到w的边
      */
     public boolean hasEdge(int v, int w) {
-        if (v < 0 || v >= n) throw new IllegalArgumentException("Called addEdge() invalid argument:" + v + "!");
-        if (w < 0 || w >= n) throw new IllegalArgumentException("Called addEdge() invalid argument:" + w + "!");
+        if (v < 0 || v >= n) throw new IllegalArgumentException("Called hasEdge() invalid argument:" + v + "!");
+        if (w < 0 || w >= n) throw new IllegalArgumentException("Called hasEdge() invalid argument:" + w + "!");
         return g[v][w];
     }
 

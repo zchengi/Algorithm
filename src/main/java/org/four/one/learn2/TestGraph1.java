@@ -6,7 +6,7 @@ package org.four.one.learn2;
  * @author cheng
  *         2018/3/7 12:22
  */
-public class GraphTest1 {
+public class TestGraph1 {
     public static void main(String[] args) {
 
         int N = 20;

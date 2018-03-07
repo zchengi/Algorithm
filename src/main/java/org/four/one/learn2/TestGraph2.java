@@ -6,7 +6,7 @@ package org.four.one.learn2;
  * @author cheng
  *         2018/3/7 13:03
  */
-public class GraphTest2 {
+public class TestGraph2 {
     public static void main(String[] args) {
 
         // 使用两种图的存储方式读取 testG1.txt 文件
