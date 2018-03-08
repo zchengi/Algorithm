@@ -1,12 +1,12 @@
 package org.four.one.learn;
 
 /**
- * 表4.1.2 最常用的图处理代码
+ * 表 4.1.2 常用图处理方法
  *
  * @author cheng
  *         2018/3/8 13:10
  */
-public final class GraphProcessing {
+public class GraphProcessing {
 
     private GraphProcessing() {
     }
