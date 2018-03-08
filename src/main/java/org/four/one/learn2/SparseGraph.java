@@ -19,7 +19,7 @@ public class SparseGraph implements Graph {
     private Vector<Integer>[] g;
 
     public SparseGraph(int n, boolean directed) {
-        if (n < 0) throw new IllegalArgumentException("DenseGraph underflow!");
+        if (n < 0) throw new IllegalArgumentException("Number of vertices must be nonegative!");
 
         this.n = n;
         this.m = 0;

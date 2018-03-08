@@ -31,7 +31,7 @@ public class DenseGraph implements Graph {
     private boolean[][] g;
 
     public DenseGraph(int n, boolean directed) {
-        if (n < 0) throw new IllegalArgumentException("DenseGraph underflow!");
+        if (n < 0) throw new IllegalArgumentException("Number of vertices must be nonegative!");
 
         this.n = n;
         // 初始化没有任何边
