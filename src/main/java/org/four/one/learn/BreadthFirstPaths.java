@@ -16,7 +16,7 @@ public class BreadthFirstPaths {
     private boolean[] marked;
 
     /**
-     * 记录源顶点到当前顶点的最短路径的经过的顶点
+     * 记录源顶点到当前顶点的最短路径经过的顶点
      */
     private int[] edgeTo;
 
@@ -74,7 +74,7 @@ public class BreadthFirstPaths {
                     distTo[w] = distTo[v] + 1;
                     // 标记当前 w 因为最短路径已知
                     marked[w] = true;
-                    // 将它假如队列中
+                    // 将它加入队列中
                     queue.enqueue(w);
                 }
             }
