@@ -102,12 +102,14 @@ public class SymbolGraph {
 
     public static void main(String[] args) {
 
-        // routes.txt
-        String filename = "src/main/java/org/four/one/text/routes.txt";
-        String delimiter = " ";
+        // routes.txt " " ; movies.txt "/"
+        String filename = "src/main/java/org/four/one/text/movies.txt";
+        String delimiter = "/";
         SymbolGraph sg = new SymbolGraph(filename, delimiter);
 
         Graph graph = sg.graph;
+        // routes.txt : JFK、LAX
+        // movies.txt : Tin Men (1987)、Bacon, Kevin
         while (StdIn.hasNextLine()) {
             String source = StdIn.readLine();
             if (sg.contains(source)) {
