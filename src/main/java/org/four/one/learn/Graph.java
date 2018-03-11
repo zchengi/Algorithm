@@ -18,6 +18,7 @@ import java.util.NoSuchElementException;
  * int V()                              顶点数
  * int E()                              边数
  * void addEdge(int v, int w)           添加一条边
+ * boolean hasEdge(int v, int w)        判断是否存在一条边连接 v 和 w
  * int degree(int v)                    计算v的度数
  * Iterable<Integer> adj(int v)         和v相邻的所有顶点
  * String toString()                    对象的字符串表示
@@ -103,6 +104,17 @@ public class Graph {
         adj[v].add(w);
         adj[w].add(v);
         E++;
+    }
+
+    public boolean hasEdge(int v, int w) {
+
+        if (v < 0 || v >= V || w < 0 || w >= V) return false;
+
+        for (int x : adj(v)) {
+            if (w == x) return true;
+        }
+
+        return false;
     }
 
     public Iterable<Integer> adj(int v) {
