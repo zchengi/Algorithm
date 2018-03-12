@@ -112,7 +112,7 @@ public class BreadthFirstPaths {
     }
 
     /**
-     * 返回 v 与 源顶点之间最短路径的边数
+     * 返回 v 与 源顶点之间最短路径的长度
      */
     public int distTo(int v) {
         validateVertex(v);
