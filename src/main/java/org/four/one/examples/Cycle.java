@@ -90,6 +90,8 @@ public class Cycle {
                 edgeTo[w] = v;
                 dfs(G, v, w);
             } else if (w != u) {
+                // 这里判断一个连通分量中是否存在与当前 w 相连的顶点（自己除外）
+                // 如果存在，则它们均与当前根顶点相连，即证明存在环
                 cycle = new Stack<>();
                 for (int x = v; x != w; x = edgeTo[x]) {
                     cycle.push(x);
@@ -116,13 +118,12 @@ public class Cycle {
         Cycle finder = new Cycle(g);
 
         if (finder.hasCycle()) {
-            System.out.println("Graph 不是二分图.");
+            System.out.println("Graph 不是无环图.");
             for (int v : finder.cycle()) {
                 System.out.print(v + " ");
             }
         } else {
             System.out.println("Graph is acyclic.");
         }
-
     }
 }
