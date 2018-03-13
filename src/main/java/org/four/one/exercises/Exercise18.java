@@ -10,7 +10,7 @@ package org.four.one.exercises;
 public class Exercise18 {
     /*
      *
-     *··· ···
+     * ··· ···
      *
      */
 }
