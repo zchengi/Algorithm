@@ -5,7 +5,7 @@ import java.util.Vector;
 /**
  * Kruskal算法求最小生成树
  *
- * 时间复杂度：O(ElogE + ElogV)
+ * 时间复杂度：O(ElogE)
  *
  * @author cheng
  *         2018/3/14 21:49
