@@ -1,13 +1,16 @@
 package org.four.three.learn2;
 
 /**
- * 测试两种 Prim 算法的性能差距
- * 可以看出使用 索引堆实现的Prim 算法优于 Lazy Prim 算法
+ * 比较Lazy Prim, Prim和Kruskal的时间性能
  *
+ * -可以看出使用 索引堆实现的Prim 算法优于 Lazy Prim 算法
+ *
+ * -相比 Kruskal算法，Prim算法性能更优一点
+ * -但是由于 Kruskal算法实现简单，所以对于一些小的图也可以用于快速实现
  * @author cheng
  *         2018/3/14 21:33
  */
-public class PrimCompare {
+public class CompareMST {
     public static void main(String[] args) {
 
         String filename1 = "src/main/java/org/four/three/text/testG1.txt";
@@ -91,6 +94,30 @@ public class PrimCompare {
         endTime = System.currentTimeMillis();
         System.out.println("Test for G4: " + (endTime - startTime) + "ms.");
 
+        System.out.println();
+
+        // Test Kruskal MST
+        System.out.println("Test Kruskal MST");
+
+        startTime = System.currentTimeMillis();
+        KruskalMST<Double> kruskalMST1 = new KruskalMST<Double>(g1);
+        endTime = System.currentTimeMillis();
+        System.out.println("Test for G1: " + (endTime - startTime) + "ms.");
+
+        startTime = System.currentTimeMillis();
+        KruskalMST<Double> kruskalMST2 = new KruskalMST<Double>(g2);
+        endTime = System.currentTimeMillis();
+        System.out.println("Test for G2: " + (endTime - startTime) + "ms.");
+
+        startTime = System.currentTimeMillis();
+        KruskalMST<Double> kruskalMST3 = new KruskalMST<Double>(g3);
+        endTime = System.currentTimeMillis();
+        System.out.println("Test for G3: " + (endTime - startTime) + "ms.");
+
+        startTime = System.currentTimeMillis();
+        KruskalMST<Double> kruskalMST4 = new KruskalMST<Double>(g4);
+        endTime = System.currentTimeMillis();
+        System.out.println("Test for G4: " + (endTime - startTime) + "ms.");
         /*
         *
         * Test Lazy Prim MST:
@@ -104,6 +131,13 @@ public class PrimCompare {
         * Test for G2: 1ms.
         * Test for G3: 10ms.
         * Test for G4: 29ms.
+        *
+        *
+        * Test Kruskal MST
+        * Test for G1: 1ms.
+        * Test for G2: 2ms.
+        * Test for G3: 14ms.
+        * Test for G4: 58ms.
         *
         */
     }
