@@ -75,7 +75,7 @@ public class PrimMST<Weight extends Number & Comparable> {
 
         // 计算最小生成树的权值
         mstWeight = mst.elementAt(0).wt();
-        for (int i = 0; i < mst.size(); i++) {
+        for (int i = 1; i < mst.size(); i++) {
             mstWeight = mstWeight.doubleValue() + mst.elementAt(i).wt().doubleValue();
         }
     }
