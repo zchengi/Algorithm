@@ -5,6 +5,8 @@ import java.util.Vector;
 /**
  * 测试 Lazy Prim 最小生成树算法
  *
+ * 时间复杂度O(ElogE)
+ *
  * @author cheng
  *         2018/3/14 17:02
  */

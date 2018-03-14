@@ -5,6 +5,8 @@ import java.util.Vector;
 /**
  * 使用Prim算法求图的最小生成树
  *
+ * 时间复杂度O(ElogE)
+ *
  * @author cheng
  *         2018/3/14 16:39
  */
