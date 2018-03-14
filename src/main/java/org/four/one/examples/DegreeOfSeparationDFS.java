@@ -1,59 +1,48 @@
 package org.four.one.examples;
 
 import edu.princeton.cs.algs4.StdIn;
-import org.four.one.learn.BreadthFirstPaths;
+import org.four.one.learn.DepthFirstPaths;
 import org.four.one.learn.Graph;
 import org.four.one.learn.SymbolGraph;
 
 /**
  * 算法4.1.7节 间隔的度数
- *
- * 找到一个社交网络中两个人间隔的度数。
- * 示例：在 movies.txt 中，找到 两个人之间的最短路径；
+ * 使用深度优先搜索，找出两个人的间隔
  *
  * @author cheng
- *         2018/3/10 15:50
+ *         2018/3/14 11:08
  */
-public class DegreeOfSeparation {
-
-    private DegreeOfSeparation() {
-    }
-
+public class DegreeOfSeparationDFS {
     public static void main(String[] args) {
 
-        // routes.txt  " "  "JFK"
         // movies.txt  "/"  "Bacon, Kevin"
-        // movies.txt  "/"  "Animal House (1978)"
-        String filename = "src/main/java/org/four/one/text/routes.txt";
-        String delimiter = " ";
-        String source = "JFK";
+        String filename = "src/main/java/org/four/one/text/movies.txt";
+        String delimiter = "/";
+        String source = "Bacon, Kevin";
 
         SymbolGraph sg = new SymbolGraph(filename, delimiter);
-        Graph graph = sg.graph();
+        Graph G = sg.graph();
         if (!sg.contains(source)) {
             System.out.println(source + " not in database.");
             return;
         }
 
-        int s = sg.indexOf(source);
-        BreadthFirstPaths bfs = new BreadthFirstPaths(graph, s);
-
-        // LAS            、 DFW
         // Kidman, Nicole 、 Grant, Cary
-        // Titanic (1997) 、 To Catch a Thief (1955)
+        int s = sg.indexOf(source);
+        DepthFirstPaths dfs = new DepthFirstPaths(G, s);
         while (!StdIn.isEmpty()) {
             String sink = StdIn.readLine();
             if (sg.contains(sink)) {
                 int t = sg.indexOf(sink);
-                if (bfs.hasPathTo(t)) {
-                    for (int v : bfs.pathTo(t)) {
+                if (dfs.hasPathTo(t)) {
+                    for (int v : dfs.pathTo(t)) {
                         System.out.println(" " + sg.nameOf(v));
                     }
                 } else {
                     System.out.println("Not connected.");
                 }
             } else {
-                System.out.println(sink+ " not in database.");
+                System.out.println("Not in database.");
             }
         }
     }
