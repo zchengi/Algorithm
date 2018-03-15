@@ -96,14 +96,14 @@ public class LazyPrimMST<Weight extends Number & Comparable> {
     /**
      * 返回最小生成树的所有边
      */
-    Vector<Edge<Weight>> mstEdges() {
+    public Vector<Edge<Weight>> mstEdges() {
         return mst;
     }
 
     /**
      * 返回最小生成树的权值
      */
-    Number result() {
+    public Number result() {
         return mstWeight;
     }
 }
