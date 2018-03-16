@@ -47,7 +47,7 @@ public class KruskalMST<Weight extends Number & Comparable> {
 
             // 从最小堆中一次从小到大取出所有边
             Edge<Weight> e = pq.extractMin();
-            // 如果该边的两个端点是连通的，说明假如这条边将产生环，扔掉这条变
+            // 如果该边的两个端点是连通的，说明加入这条边将产生环，扔掉这条变
             if (uf.isConnected(e.v(), e.w())) {
                 continue;
             }
