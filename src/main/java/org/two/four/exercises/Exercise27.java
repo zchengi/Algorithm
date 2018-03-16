@@ -5,7 +5,7 @@ import org.tool.SortTestHelper;
 import java.util.NoSuchElementException;
 
 /**
- * 2.4.27 找出最小元素。在MaxPQ中假如一个min()方法。你的实现所需的时间和空间都应该是常数。
+ * 2.4.27 找出最小元素。在MaxPQ中加入一个min()方法。你的实现所需的时间和空间都应该是常数。
  *
  * 分析：新增一个min用于记录当前队列中的最小值，在每次insert()和delMax()操作的时候更新min的值；
  *
