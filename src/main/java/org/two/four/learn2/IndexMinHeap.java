@@ -196,7 +196,7 @@ public class IndexMinHeap<Item extends Comparable> {
     /**
      * 查看索引i所在的位置是否存在元素
      */
-    private boolean contain(int i) {
+    public boolean contain(int i) {
         if (i < 0 || i + 1 > capacity) {
             throw new IllegalArgumentException("非法参数!");
         }
