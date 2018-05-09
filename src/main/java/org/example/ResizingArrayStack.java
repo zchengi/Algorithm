@@ -71,6 +71,7 @@ public class ResizingArrayStack<Item> implements Iterable<Item> {
      *
      * @return 迭代器
      */
+    @Override
     public Iterator<Item> iterator() {
         return new ReverseArrayStackIterator();
     }
